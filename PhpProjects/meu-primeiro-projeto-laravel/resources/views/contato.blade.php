@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
-    <style>
-        .contact-info {
-            margin-bottom: 20px;
-        }
-        .contact-info i {
-            font-size: 1.5rem;
-        }
-        .form-control:focus {
-            box-shadow: none;
-            border-color: #007bff;
-        }
-    </style>
-</head>
+@extends('layouts.master')
 <body>
     <!-- Cabeçalho -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -88,4 +69,4 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 </body>
-</html>
+
