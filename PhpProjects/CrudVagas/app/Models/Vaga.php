@@ -11,7 +11,7 @@ class Vaga extends Model
     //atributos
     protected $fillable =[
         'titulo',
-        'decricao',
+        'descricao',
         'setor',
         'remuneracao',
         'empresa'

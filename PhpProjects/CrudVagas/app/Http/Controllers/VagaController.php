@@ -31,7 +31,7 @@ class VagaController extends Controller
     {
         $request->validate([
             'titulo'=>'required',
-            'descicao'=>'required',
+            'descricao'=>'required',
             'setor'=>'required',
             'remuneracao'=>'required|numeric',
             'empresa'=>'required'
