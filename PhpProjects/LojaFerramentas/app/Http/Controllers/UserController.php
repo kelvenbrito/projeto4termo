@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 
 
-class UsuarioController extends Controller
+class UserController extends Controller
 {
     // Exibir o formulário de login
     public function showLoginForm()
@@ -52,7 +52,7 @@ class UsuarioController extends Controller
     // Processar o registro de um novo usuário
     public function registro(Request $request)
     {
-        $request->validate([
+    $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
@@ -66,10 +66,15 @@ class UsuarioController extends Controller
         ]);
 
 
+       
+      
+            return redirect('/');
+     
+
+    
+
         //Auth::login($usuario);
-
-
-        return redirect('/');
+       
     }
 
 
@@ -78,9 +83,9 @@ class UsuarioController extends Controller
     {
         Auth::logout();
 
-
-        $request->session()->invalidate();
         $request->session()->regenerateToken();
+        $request->session()->invalidate();
+      
 
 
         return redirect('/');
