@@ -38,4 +38,4 @@ Route::post('/logout',[UserController::class, 'logout']);
 
 
 //rota para Produtos
-Route::resource('produtos', ProdutoController::class)->middleware('auth');
+Route::resource('produtos', ProdutoController::class)->middleware('teste');

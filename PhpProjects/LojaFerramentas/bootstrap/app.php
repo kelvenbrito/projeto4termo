@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         //
-        $middleware->append(['teste','ProdutosMiddleware']);
+        $middleware->append(['teste',ProdutosMiddleware::class]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
