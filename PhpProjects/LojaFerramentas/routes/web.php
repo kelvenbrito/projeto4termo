@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProdutoController;
 
 
 // Rota para exibir a homepage
@@ -34,3 +35,7 @@ return view('usuarios.dashboard');
 
 // Rota do logot
 Route::post('/logout',[UserController::class, 'logout']);
+
+
+//rota para Produtos
+Route::resource('produtos', ProdutoController::class)->middleware('auth');

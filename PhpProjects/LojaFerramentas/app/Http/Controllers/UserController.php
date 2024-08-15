@@ -65,15 +65,15 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-
+ Auth::login($usuario); //já autentico o usuario
        
       
-            return redirect('/');
+            return redirect('/dashboard'); //redireciono para dashboard
      
 
     
 
-        //Auth::login($usuario);
+       
        
     }
 
@@ -85,6 +85,7 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
         $request->session()->invalidate();
+        $request->session()->regenerate();
       
 
 
