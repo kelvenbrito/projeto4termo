@@ -1,14 +1,14 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Middleware\ProdutosMiddleware;
 
+//pagina inicial com carrosel
 
-// Rota para exibir a homepage
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/',  [HomeController::class,'index'])->name('home');
 
 // Rota para exibir o formulário de registro
 Route::get('/registro', [UserController::class, 'showRegistroForm'])
@@ -38,4 +38,5 @@ Route::post('/logout',[UserController::class, 'logout']);
 
 
 //rota para Produtos
-Route::resource('produtos', ProdutoController::class)->middleware('teste');
+Route::resource('/produtos', ProdutoController::class)->middleware(ProdutosMiddleware::class);
+
