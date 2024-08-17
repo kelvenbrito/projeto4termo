@@ -16,7 +16,13 @@ class DashboardController extends Controller
                          ->orWhere('categoria', 'like' ,"%{$search}%");
         })->get();
 
+        /*
+    $produtos = Produto::>where('nome', 'like', "%{$search}%")
+                         ->orWhere('descricao', 'like', "%{$search}%")
+                         ->orWhere('categoria', 'like' ,"%{$search}%");
+        */
 
-        return view('dashboard', compact('produtos'));
+
+        return view('usuarios.dashboard', compact('produtos'));
     }
 }
