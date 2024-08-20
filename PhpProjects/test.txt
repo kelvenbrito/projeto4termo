@@ -1,0 +1,29 @@
++------------------+          +---------------------+       +--------------------------------+
+|     Usuário      |          |  Medicamento        |       |    Estoque                     |
++------------------+          +---------------------+       +--------------------------------+
+| - Nome: String   |          | - Nome: String      |       | - Id_Medicamento: Int          |
+| - Email: String  |          | - Descrição: String |       | - Quantidade_Disponível: Int   |
+| - Senha: String  |          | - Preço: Decimal    |       | - Data_Entrada: Date           |
+| - Eh_Adm: Enum   |          | - Quantidade: Int   |       | - Data_Saída: Date             |
++------------------+          | - Categoria: String |       +--------------------------------+
+| + Create()       |          | - Data_Validade:Date|       | + Atualizar_Quantidade()       |
+| + Auth()         |          | - Fabricante: String|       | + Verificar_Disponibilidade()  |
+| + Update()       |          +---------------------+       | + Gerenciar_Validade()         |
++------------------+          | + Create()          |       +--------------------------------+
+                              | + Read()            |
+                              | + Update()          |
+                              | + Delete()          |
+                              +---------------------+
+
++-----------------------------+          +------------------+
+|    Carrinho                   |          |    Pagamento     |
++------------------+          +------------------+
+| - Id_Usuario: Int     |          | - Id_Usuario: Int|
+| - Id_Medic: Int       |      | - Id_Carrinho: Int|
+| - Qtd_Medic: Int      |             - Valor: Decimal |
+| - Valor_Total: Decimal|    | - Data: Date     |
++------------------+          | - Status: Enum   |
+| + Adicionar()         |          +------------------+
+| + Remover()           |          | + Processar()    |
+| + Finalizar()         |          | + Verificar_Status() |
++------------------+          +------------------+
