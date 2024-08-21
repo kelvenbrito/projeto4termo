@@ -1,0 +1,16 @@
+
+Usuário (Cliente/Funcionario)
+   Cadastro
+	Login
+	Comprar
+    CRUD Produtos(Funcionarios)
+
+
+Medicamentos
+    Pesquisar
+	Adicionar e Remover Carrinho
+
+
+Carrinho
+	Status Pagamento
+    Finalizar PAGAMETO
