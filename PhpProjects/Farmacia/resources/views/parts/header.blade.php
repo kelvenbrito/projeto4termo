@@ -7,6 +7,11 @@
         @csrf
         <button type="submit">Logout</button>
     </form>
+    @if(Auth::user()->isfunc())
+    <div>
+        <a href="/medicamentos"><h3>Dashborad Farmacia - Funcionario</h3></a>
+    </div>
+@endif
 @else
     <div>
         <ul>

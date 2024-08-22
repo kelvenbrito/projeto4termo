@@ -36,12 +36,12 @@ class MedicamentosController extends Controller
         $request->validate([
             'nome'=> 'required|string|max:255',
             'descricao'=> 'required',
-            'quantidade'=> 'required|numeric',
             'categoria'=> 'require',
-            'preco'=> 'required|numeric',
-            'data_validade'=> 'required',
+            'quantidade'=> 'required|numeric',
             'fabricante'=> 'required',
-
+            'data_validade'=> 'required',
+            'preco'=> 'required|numeric',
+  
         ]);
 
         Medicamentos::create($request->all());
