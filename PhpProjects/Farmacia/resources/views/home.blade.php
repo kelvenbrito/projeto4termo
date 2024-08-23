@@ -6,12 +6,12 @@
         <div class="carousel-inner">
             @foreach ($medicamentos as $index => $medicamento)
             <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                <img src=" " class="d-block w-100" alt="{{ $mendicamento->nome }}">
+                <img src="{{ asset('storage/medicamentos/' . $medicamento->img) }}" class="d-block w-100" alt="{{ $medicamento->nome }}">
                 <div class="carousel-caption d-none d-md-block">
              
                     <h5>{{ $medicamento->nome }}</h5>
-                    <p>{{ $mendicamento->descricao }}</p>
-                    <p>Preço: R$ {{ $mendicamento->preco }}</p>
+                    <p>{{ $medicamento->descricao }}</p>
+                    <p>Preço: R$ {{ $medicamento->preco }}</p>
                 </div>
             </div>
             @endforeach

@@ -20,7 +20,6 @@
             <th>Nome</th>
             <th>Categoria</th>
             <th>fabricante</th>
-            <th>data_validade</th>
             <th>Quantidade</th>
             <th>Preço</th>
             <th width="280px">Ação</th>
@@ -28,16 +27,15 @@
         @foreach ($medicamentos as $medicamento)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $produto->nome }}</td>
-            <td>{{ $produto->categoria}}</td>
-            <td>{{ $produto->fabricante}}</td>
-            <td>{{ $produto->data_validade }}</td>
-            <td>{{ $produto->quantidade}}</td>
-            <td>{{ $produto->preco }}</td>
-      
+            <td>{{ $medicamento->nome }}</td>
+            <td>{{ $medicamento->categoria}}</td>
+            <td>{{ $medicamento->fabricante}}</td>
+            <td>{{ $medicamento->quantidade}}</td>
+            <td>{{ $medicamento->preco }}</td>
+      <td>
             <form action="{{ route('medicamentos.destroy', $medicamento->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('medicamentos.show', $produto->id) }}">Mostrar</a>
-                    <a class="btn btn-primary" href="{{ route('medicamentos.edit', $produto->id) }}">Editar</a>
+                    <a class="btn btn-info" href="{{ route('medicamentos.show', $medicamento->id) }}">Mostrar</a>
+                    <a class="btn btn-primary" href="{{ route('medicamentos.edit', $medicamento->id) }}">Editar</a>
 
 
                     @csrf

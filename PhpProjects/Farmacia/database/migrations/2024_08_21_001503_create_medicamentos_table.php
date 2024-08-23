@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('quantidade');
             $table->string('categoria');
             $table->decimal('preco',8,2);
-           $table->string('data_validade');
            $table->string('fabricante');
             $table->string('img')->nullable();
             $table->timestamps();

@@ -14,7 +14,6 @@ class Medicamentos extends Model
         'quantidade',
         'categoria',
         'preco',
-        'data_validade',
         'fabricante',
         'img',
     ];

@@ -39,7 +39,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::post('/logout',[UserController::class, 'logout']);
 
 //rota para medicamentos
-Route::resource('/medicamentos', MedicamentosController::class)->middleware(medicamentosMiddleware::class)->except('show');
+Route::resource('/medicamentos', MedicamentosController::class)->middleware(MedicamentosMiddleware::class)->except('show');
 
 //Visualização de um ,edicamentos especifico
 Route::get('medicamentos/{medicamento}', [MedicamentosController::class, 'show'])->middleware('auth')->name('medicamentos.show');

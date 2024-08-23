@@ -31,24 +31,43 @@ class MedicamentosController extends Controller
      * Store a newly created resource in storage.
      */
  // envia o formulario de cadastro
-     public function store(Request $request)
-    {
-        $request->validate([
-            'nome'=> 'required|string|max:255',
-            'descricao'=> 'required',
-            'categoria'=> 'require',
-            'quantidade'=> 'required|numeric',
-            'fabricante'=> 'required',
-            'data_validade'=> 'required',
-            'preco'=> 'required|numeric',
-  
-        ]);
-
-        Medicamentos::create($request->all());
-
-        return redirect()->route('medicamentos.index')->
-        with('success','Medicamentos cadastrado com sucesso!');
-    }
+ public function store(Request $request)
+ {
+     // Validação dos dados do formulário
+     $request->validate([
+         'nome' => 'required|string|max:255',
+         'descricao' => 'nullable|string',
+         'categoria' => 'nullable|string',
+         'quantidade' => 'required|integer',
+         'preco' => 'required|numeric',
+         'fabricante' => 'nullable|string',
+         'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+     ]);
+ 
+     // Processamento do arquivo de imagem, se presente
+     if ($request->hasFile('img')) {
+         $file = $request->file('img');
+         $path = $file->store('public/medicamentos'); // Armazena a imagem em storage/app/public/medicamentos
+         $imgPath = basename($path); // Obtém o nome do arquivo
+     } else {
+         $imgPath = null;
+     }
+ 
+     // Criação do registro no banco de dados
+     Medicamentos::create([
+         'nome' => $request->input('nome'),
+         'descricao' => $request->input('descricao'),
+         'categoria' => $request->input('categoria'),
+         'quantidade' => $request->input('quantidade'),
+         'preco' => $request->input('preco'),
+         'fabricante' => $request->input('fabricante'),
+         'img' => $imgPath,
+     ]);
+ 
+     return redirect()->route('medicamentos.index')
+         ->with('success', 'Medicamento cadastrado com sucesso!');
+ }
+ 
 
     /**
      * Display the specified resource.
@@ -56,50 +75,67 @@ class MedicamentosController extends Controller
       //Mostrar o produto
      public function show(Medicamentos $medicamento)
     {
-        return view('medicamentos', compact('medicamento'));
+        return view('medicamentos.show', compact('medicamento'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Medicamentos $medicamentos)
+    public function edit(Medicamentos $medicamento)
     {
-        return view('mediamentos.edit', compact('medicamentos'));
+        return view('medicamentos.edit', compact('medicamento'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     // Atualização do medicamento
-    public function update(Request $request, Medicamentos $medicamentos)
+    public function update(Request $request, Medicamentos $medicamento)
     {
         $request->validate([
-            'nome'=> 'required|string|max:255',
-            'descricao'=> 'required',
-            'quantidade'=> 'required|numeric',
-            'categoria'=> 'require',
-            'preco'=> 'required|numeric',
-            'data_validade'=> 'required',
-            'fabricante'=> 'required',
-
+            'nome' => 'required|string|max:255',
+            'descricao' => 'nullable|string',
+            'categoria' => 'nullable|string',
+            'quantidade' => 'required|integer',
+            'preco' => 'required|numeric',
+            'fabricante' => 'nullable|string',
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        $medicamentos->update($request->all());
-
-        return redirect()->route('medicamentos.index')->
-        with('success','Medicamento Atualizado com Sucesso!');
-
+    
+        // Processamento do arquivo de imagem, se presente
+        if ($request->hasFile('img')) {
+            $file = $request->file('img');
+            $path = $file->store('public/medicamentos'); // Armazena a imagem em storage/app/public/medicamentos
+            $imgPath = basename($path); // Obtém o nome do arquivo
+        } else {
+            $imgPath = $medicamento->img; // Mantém o valor antigo se não houver nova imagem
+        }
+    
+        // Atualização do registro no banco de dados
+        $medicamento->update([
+            'nome' => $request->input('nome'),
+            'descricao' => $request->input('descricao'),
+            'categoria' => $request->input('categoria'),
+            'quantidade' => $request->input('quantidade'),
+            'preco' => $request->input('preco'),
+            'fabricante' => $request->input('fabricante'),
+            'img' => $imgPath,
+        ]);
+    
+        return redirect()->route('medicamentos.index')
+            ->with('success', 'Medicamento atualizado com sucesso!');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
     // Deletar Medicamentos
-    public function destroy(Medicamentos $medicamentos)
+    public function destroy(Medicamentos $medicamento)
     {
-        $medicamentos->delete();
+        $medicamento->delete();
 
-        return redirect()->route('medicamentos')->
+        return redirect()->route('medicamentos.index')->
         with('success','Medicamento deletado com sucesso');
     }
 }

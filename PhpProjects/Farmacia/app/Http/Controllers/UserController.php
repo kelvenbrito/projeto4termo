@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use Hash;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     //Exibir o formulario de login
@@ -30,7 +31,7 @@ class UserController extends Controller
         return back()->withErrors([
             'email' => 'Esse email não existe em nossos registros!',
 
-        ])->withInput('email');
+        ])->onlyInput('email');
     }
 
     //Exibir o formulario de registro
@@ -43,19 +44,22 @@ class UserController extends Controller
     public function registro(Request $request)
     {
         $request->validate([
-            'name' => 'required\string\max:255',
-            'email'=> 'required\string\email\max:255\unique:users',
-            'password' => 'required\sting\min8\confirmed',
+            'name' => 'required|string|max:255',
+            'email'=> 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
         ]);
-
+    
         $usuario = User::create([
             'name'=> $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
-        return redirect('/');
+    
+        Auth::login($usuario);
+        
+        return redirect('/dashboard');
     }
+    
 
     //Realizar o logout do usuario
     public function logout(Request $request)
