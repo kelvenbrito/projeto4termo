@@ -8,7 +8,7 @@
     @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{ $message }}</p>
-    </div>   
+    </div>
     @endif
 
     <a class="btn btn-success mb-2" href="{{ route('medicamentos.create') }}">
@@ -34,7 +34,6 @@
             <td>{{ $medicamento->preco }}</td>
       <td>
             <form action="{{ route('medicamentos.destroy', $medicamento->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('medicamentos.show', $medicamento->id) }}">Mostrar</a>
                     <a class="btn btn-primary" href="{{ route('medicamentos.edit', $medicamento->id) }}">Editar</a>
 
 

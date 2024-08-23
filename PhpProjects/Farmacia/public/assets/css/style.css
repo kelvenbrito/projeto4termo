@@ -1,0 +1,96 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(229, 237, 245);
+}
+
+.navbar {
+    background-color: #128a1c; /* Cor de fundo do header */
+}
+.navbar-brand, .nav-link, .navbar-text {
+    color: #ffffff !important; /* Cor do texto */
+}
+.nav-link:hover {
+    color: #0d64bb !important; /* Cor do texto ao passar o mouse */
+}
+/* Estilos gerais para o contêiner de login */
+.container .login{
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para o título */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilos para o formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Estilos para os rótulos dos campos */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Estilos para os campos de entrada */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilos para o botão de login */
+.login .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos específicos para centralizar as imagens do carrossel */
+#productCarousel .carousel-inner {
+    background-color:#8b8b8b;
+    text-align: center; /* Centraliza o conteúdo dentro do carrossel */
+}
+
+#productCarousel .carousel-item img {
+
+    padding: auto;
+    margin-left: 300px;
+    display: inline-block; /* Garante que a imagem se comporte como um bloco em linha */
+    max-width: 800px;
+    max-height: 500px; /* Ajuste conforme necessário */
+    text-align: center; /* Centraliza o conteúdo dentro do carrossel */
+
+
+}
+
+/* Estilos específicos para os cards */
+.card-img-top {
+    height: 400px; /* Ajuste conforme necessário */
+    object-fit: cover; /* Mantém a proporção da imagem */
+}
+

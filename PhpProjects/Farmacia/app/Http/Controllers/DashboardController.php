@@ -18,6 +18,8 @@ class DashboardController extends Controller
                          ->orWhere('categoria', 'like' ,"%{$search}%");
         })->get();
         return view('usuarios.dashboard', compact('medicamentos'));
-    
+
     }
+
+    
 }

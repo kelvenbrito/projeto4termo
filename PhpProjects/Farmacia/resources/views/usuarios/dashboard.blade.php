@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Dashboard de Medicamentos</h1>
+    <h1>Medicamentos</h1>
     <form method="GET" action="{{ route('dashboard') }}">
         <input type="text" name="search" placeholder="Pesquisar medicamentos..." value="{{ request('search') }}">
         <button type="submit">Pesquisar</button>

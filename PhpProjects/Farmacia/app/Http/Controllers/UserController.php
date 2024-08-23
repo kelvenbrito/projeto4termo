@@ -25,7 +25,7 @@ class UserController extends Controller
 
         if(Auth::guard('web')->attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/');
         }
 
         return back()->withErrors([
@@ -48,18 +48,18 @@ class UserController extends Controller
             'email'=> 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
-    
+
         $usuario = User::create([
             'name'=> $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-    
+
         Auth::login($usuario);
-        
-        return redirect('/dashboard');
+
+        return redirect('/');
     }
-    
+
 
     //Realizar o logout do usuario
     public function logout(Request $request)
@@ -69,6 +69,6 @@ class UserController extends Controller
         $request->session()->regenerateToken();
         $request->session()->invalidate();
         return redirect('/');
-     
+
     }
 }

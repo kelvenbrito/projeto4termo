@@ -8,7 +8,7 @@
             <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                 <img src="{{ asset('storage/medicamentos/' . $medicamento->img) }}" class="d-block w-100" alt="{{ $medicamento->nome }}">
                 <div class="carousel-caption d-none d-md-block">
-             
+
                     <h5>{{ $medicamento->nome }}</h5>
                     <p>{{ $medicamento->descricao }}</p>
                     <p>Preço: R$ {{ $medicamento->preco }}</p>
@@ -25,4 +25,29 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
+    <br><br>
+
+    <h1>Medicamentos</h1>
+
+
+    <div class="row">
+        @foreach ($medicamentos as $medicamento)
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ asset('storage/medicamentos/' . $medicamento->img) }}" class="card-img-top" alt="{{ $medicamento->nome }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $medicamento->nome }}</h5>
+                    <p class="card-text">{{ $medicamento->descricao }}</p>
+                    <p class="card-text">{{ $medicamento->categoria }}</p>
+                    <p class="card-text">{{ $medicamento->fabricante }}</p>
+                    <p class="card-text">Preço: R$ {{ $medicamento->preco }}</p>
+                    <a href="{{ route('medicamentos.show', $medicamento->id) }}" class="btn btn-primary">Ver Medicamentos</a>
+
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
 @endsection

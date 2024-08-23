@@ -19,7 +19,8 @@
                     @csrf
                     <label for="quantidade"> Selecione a Quantidade</label>
                     <input type="number" name="quantidade" id="">
-                    <button type="submit" class="btn btn-primary">Adicionar ao Carrinho</button>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Finalizar Compra</button>
                 </form>
             </div>
         </div>

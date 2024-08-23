@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Medicamentos;
 use Illuminate\Http\Request;
+use App\Models\Carrinho;
 
 class HomeController extends Controller
 {
@@ -13,5 +14,7 @@ class HomeController extends Controller
         $medicamentos = Medicamentos::take(5)->get();
         return view('home', compact('medicamentos'));
     }
+
+   
 
 }

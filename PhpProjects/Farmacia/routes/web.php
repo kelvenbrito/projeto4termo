@@ -18,7 +18,7 @@ Route::get('/',  [HomeController::class,'index'])->name('home');
 Route::get('/registro', [UserController::class, 'showRegistroForm'])
     ->name('usuarios.registro');
 
-    
+
 // Rota para processar o registro
 Route::post('/registro', [UserController::class, 'registro'])
 ->name('usuarios.registro');
@@ -27,13 +27,15 @@ Route::post('/registro', [UserController::class, 'registro'])
 // Rota para exibir o formulário de registro
 Route::get('/login', [UserController::class, 'showLoginForm'])
     ->name('usuarios.login');
-    
+
     // Rota para processar o login
 Route::post('/login', [UserController::class, 'login'])
     ->name('usuarios.login');
-    
+
     // Rota para pagina interna
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+//Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth')->name('dashboard');
+
 
 // Rota do logot
 Route::post('/logout',[UserController::class, 'logout']);
@@ -44,5 +46,8 @@ Route::resource('/medicamentos', MedicamentosController::class)->middleware(Medi
 //Visualização de um ,edicamentos especifico
 Route::get('medicamentos/{medicamento}', [MedicamentosController::class, 'show'])->middleware('auth')->name('medicamentos.show');
 
+
 //rota para adicionar medicamentos no carrinho
 Route::post('carrinho/add/{medicamento}', [CarrinhoController::class,'add'])->middleware('auth')->name('carrinho.add');
+
+
