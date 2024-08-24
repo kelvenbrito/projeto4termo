@@ -5,11 +5,22 @@
 
 <div class="container">
     <h1 class="my-4">Medicamentos</h1>
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-    @endif
+ <!-- Exibir mensagens de sucesso -->
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+<!-- Exibir mensagens de erro -->
+@if($errors->any())
+<div class="alert alert-danger">
+    @foreach($errors->all() as $error)
+        <p>{{ $error }}</p>
+    @endforeach
+</div>
+@endif
+
 
     <a class="btn btn-success mb-2" href="{{ route('medicamentos.create') }}">
         Cadastrar Novo Medicamento

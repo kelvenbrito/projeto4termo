@@ -1,0 +1,84 @@
+Manual do Usuário
+Introdução
+Bem-vindo ao manual do usuário da nossa aplicação de gerenciamento de medicamentos. Este guia irá ajudá-lo a entender como utilizar as principais funcionalidades da aplicação, incluindo a visualização de medicamentos, login, registro, e gerenciamento de produtos.
+
+Navegação na Aplicação
+Página Inicial
+Carrossel de Produtos: Na página inicial, você encontrará um carrossel exibindo alguns medicamentos disponíveis. Cada item do carrossel mostra uma imagem do medicamento, seu nome, descrição e preço. Use as setas de navegação para ver diferentes medicamentos.
+
+
+
+Lista de Medicamentos: Abaixo do carrossel, há uma lista de medicamentos. Cada medicamento é apresentado em um cartão com sua imagem, nome, descrição, categoria, fabricante e preço. Clique no botão "comprar" voce podera  ver mais detalhes sobre cada produto e finalizar compra.
+
+
+
+Login
+Para acessar todas as funcionalidades da aplicação, você deve estar logado. Se ainda não possui uma conta, você pode se registrar usando a funcionalidade de registro.
+
+Acesse a Página de Login:
+
+Clique no link "Login" na página inicial ou navegue diretamente para a página de login.
+Preencha o Formulário:
+
+Email: Insira seu endereço de e-mail.
+Senha: Insira sua senha.
+
+
+Clique em "Login" para acessar sua conta.
+
+Registro
+Se você ainda não tem uma conta, pode criar uma nova.
+
+Acesse a Página de Registro:
+
+Clique no link "Registrar-se" na página inicial ou navegue diretamente para a página de registro.
+Preencha o Formulário de Registro:
+
+Nome: Insira seu nome completo.
+Email: Insira seu endereço de e-mail.
+Senha: Crie uma senha segura.
+Confirme a Senha: Reinsira a senha para confirmação.
+
+
+Clique em "Registrar-se" para criar sua conta.
+
+Clique no botão "Comprar" no de medicamentos.
+Veja as Informações:
+
+Aqui você verá a imagem, nome, categoria, descrição, fabricante e preço do medicamento. Ao aperatr o bota finalizar a compra sera registrada a venda e ira tirar a quantidade correspondente do produto.
+
+
+A conta de funcionarios (obs. as contas devem ser modificadas por linha de codigo no baco de dados para der permisao de funcionarios)
+ tera acesso a pagina Cadastro de Produto
+Aqui você verá uma tabela com todos os medicamentos cadastrados. As informações incluem nome, categoria, fabricante, quantidade e preço.
+
+
+Clique no botão "Cadastrar Novo Medicamento".
+Preencha o Formulário:
+
+Nome: Insira o nome do medicamento.
+Descrição: Insira uma breve descrição.
+Categoria: Informe a categoria do medicamento.
+Quantidade: Indique a quantidade disponível.
+Preço: Informe o preço.
+Fabricante: Insira o nome do fabricante.
+Imagem: Faça upload da imagem do medicamento.
+<!-- Substitua pelo caminho da imagem -->
+
+Clique em "Enviar" para adicionar o medicamento à lista.
+
+Editar 
+
+
+Clique em "Editar" na tabela de medicamentos.
+Acesse a Página de Edição:
+Modifique as Informações:
+
+Atualize os campos necessários e clique em "Enviar" para salvar as alterações.
+
+Deletar
+
+Clique em "Deletar" na tabela de medicamentos.
+voce pode excluir os produtos do bancos de dado
+
+

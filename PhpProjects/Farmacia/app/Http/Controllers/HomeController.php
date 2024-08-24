@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Pegue os 5 medicamentos mais recentes, por exemplo
+        // Pegaos 5 medicamentos mais recentes
         $medicamentos = Medicamentos::take(5)->get();
         return view('home', compact('medicamentos'));
     }

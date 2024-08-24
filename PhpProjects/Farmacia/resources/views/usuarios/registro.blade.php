@@ -7,6 +7,22 @@
 @section('content')
 {{-- formulario --}}
 <div class="container">
+  <!-- Exibir mensagens de sucesso -->
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+<!-- Exibir mensagens de erro -->
+@if($errors->any())
+<div class="alert alert-danger">
+    @foreach($errors->all() as $error)
+        <p>{{ $error }}</p>
+    @endforeach
+</div>
+@endif
+
     <h1>Registrar-se</h1>
     <form method="POST" action="{{ route('usuarios.registro') }}">
         @csrf

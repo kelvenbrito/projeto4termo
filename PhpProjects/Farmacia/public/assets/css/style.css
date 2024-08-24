@@ -65,6 +65,11 @@ label {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+.container-flex {
+    display: flex;
+    flex-direction: column;
+    min-height: 60vh;
+}
 
 .btn-primary:hover {
     background-color: #0056b3;
@@ -81,8 +86,8 @@ label {
     padding: auto;
     margin-left: 300px;
     display: inline-block; /* Garante que a imagem se comporte como um bloco em linha */
-    max-width: 800px;
-    max-height: 500px; /* Ajuste conforme necessário */
+    max-width: 1200px;
+    max-height: 700px; /* Ajuste conforme necessário */
     text-align: center; /* Centraliza o conteúdo dentro do carrossel */
 
 
@@ -94,3 +99,6 @@ label {
     object-fit: cover; /* Mantém a proporção da imagem */
 }
 
+.nav-item button{
+background-color: #333;
+}

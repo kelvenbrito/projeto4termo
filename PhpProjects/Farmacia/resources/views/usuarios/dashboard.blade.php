@@ -1,3 +1,4 @@
+{{-- Pagina de medicamentos --}}
 @extends('layouts.app')
 
 @section('content')
@@ -18,7 +19,7 @@
                     <p class="card-text">{{ $medicamento->categoria }}</p>
                     <p class="card-text">{{ $medicamento->fabricante }}</p>
                     <p class="card-text">Preço: R$ {{ $medicamento->preco }}</p>
-                    <a href="{{ route('medicamentos.show', $medicamento->id) }}" class="btn btn-primary">Ver Medicamentos</a>
+                    <a href="{{ route('medicamentos.show', $medicamento->id) }}" class="btn btn-primary">Comprar</a>
 
                 </div>
             </div>

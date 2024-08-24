@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Medicamentos;
 
 
+
 class DashboardController extends Controller
 {
+    //Metodo para pequisar atraves de uma palavra chave
     public function index(Request $request)
     {
         $search = $request->input('search');

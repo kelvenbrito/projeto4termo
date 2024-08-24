@@ -9,40 +9,39 @@ use Illuminate\Http\Request;
 
 class CarrinhoController extends Controller
 {
-    public function add(Request $request, Medicamentos $medicamento)
-    {
-        $dados = $request->validate([
-            "quantidade" => 'required|numeric|min:1'
-        ]);
+ // Metodo para adicionar na tabela carrinho
+ public function add(Request $request, Medicamentos $medicamento)
+ {
+     $dados = $request->validate([
+         'quantidade' => 'required|numeric|min:1',
+     ]);
 
-        // Verifica se há quantidade suficiente em estoque
-        if ($medicamento->quantidade < $request->quantidade) {
-            return redirect()->route('medicamentos.show', $medicamento)
-                ->with('error', 'Quantidade insuficiente em estoque.');
-        }
+     // Verifica se há quantidade suficiente em estoque
+     if ($medicamento->quantidade < $request->quantidade) {
+         return redirect()->route('medicamentos.show', $medicamento)
+             ->with('error', 'Quantidade insuficiente em estoque.');
+     }
 
-        // Adiciona o medicamento ao carrinho
-        Carrinho::create([
-            'id_medicamento' => $medicamento->id,
-            'id_user' => Auth::id(),
-            'quantidade' => $request->quantidade
-        ]);
+     // Adiciona o medicamento ao carrinho
+     Carrinho::create([
+         'id_medicamento' => $medicamento->id,
+         'id_user' => Auth::id(),
+         'quantidade' => $request->quantidade,
+     ]);
 
-        // Atualiza a quantidade do medicamento em estoque
-        $medicamento->quantidade -= $request->quantidade;
-        $medicamento->save();
+     // Atualiza a quantidade do medicamento em estoque
+     $medicamento->quantidade -= $request->quantidade;
+     $medicamento->save();
 
-        return redirect()->route('medicamentos.show', $medicamento)
-            ->with('success', 'Medicamento adicionado ao Carrinho e estoque atualizado.');
-    }
+     return redirect()->route('home')->with('success', 'Compra efetuada com sucesso.');
+ }
 
-    public function index()
-    {
-        $userId = Auth::id();
-        $carrinho = Carrinho::where('id_user', $userId)->get();
-        return view('carrinho.index', compact('carrinho'));
-    }
-
+ public function index()
+ {
+     $userId = Auth::id();
+     $carrinho = Carrinho::where('id_user', $userId)->get();
+     return view('carrinho.index', compact('carrinho'));
+ }
 
 
 

@@ -1,7 +1,24 @@
+{{-- Pagina inicial --}}
 @extends('layouts.app')
 
 
 @section('content')
+<!-- Exibir mensagens de sucesso -->
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+<!-- Exibir mensagens de erro -->
+@if($errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+@endif
+
     <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             @foreach ($medicamentos as $index => $medicamento)
@@ -42,7 +59,7 @@
                     <p class="card-text">{{ $medicamento->categoria }}</p>
                     <p class="card-text">{{ $medicamento->fabricante }}</p>
                     <p class="card-text">Preço: R$ {{ $medicamento->preco }}</p>
-                    <a href="{{ route('medicamentos.show', $medicamento->id) }}" class="btn btn-primary">Ver Medicamentos</a>
+                    <a href="{{ route('medicamentos.show', $medicamento->id) }}" class="btn btn-primary">Comprar</a>
 
                 </div>
             </div>

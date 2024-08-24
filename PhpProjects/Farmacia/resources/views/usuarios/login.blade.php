@@ -1,7 +1,24 @@
 @extends('layouts.app')
-
+{{-- Pagina de login --}}
 
 @section('content')
+<!-- Exibir mensagens de sucesso -->
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+<!-- Exibir mensagens de erro -->
+@if($errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+@endif
+
+
 <div class="container">
     <div class="login">
     <h1>Login</h1>

@@ -1,5 +1,8 @@
 <div class="container-flex">
     <!-- Footer -->
+    <div class="container-flex">
+    
+        
 <footer class="bg-dark text-white text-center py-3 mt-auto">
     <div class="container">
         <p class="mb-0">© 2024 Sua Empresa. Todos os direitos reservados.</p>
@@ -10,5 +13,6 @@
         </ul>
     </div>
 </footer>
+    </div>
 
 </div>
