@@ -1,0 +1,12 @@
+git add .
+git commit -m "27/08/24"
+git push -u origin main
+git pull origin main
+
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/kelvenbrito/LMR.Dev.Not.git
+git push -u origin main
+
+https://github.com/kelvenbrito/LMR.Dev.Not.git
