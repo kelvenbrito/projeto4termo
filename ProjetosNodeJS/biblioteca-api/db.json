@@ -1,0 +1,9 @@
+{"nome":"Diogo",
+"email":["digogo@email.com", "diogo.barbosa@email.com"],
+"objetos":{
+    "bolsa":{
+        "estojo":["caneta","lapis"],
+        "carteira":["rg",200,"foto"]
+    }
+}
+}
