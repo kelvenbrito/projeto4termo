@@ -43,6 +43,27 @@ export default function Home() {
   };
 
 
+  
+  const updateTodo = async (id, currentStatus) => {
+   const response = await fetch(`/api/todos/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({completed:!currentStatus }),
+      
+      
+    });
+    const data = await response.json();
+   
+      setTodos(todos.map((todo) => todo._id ===id ? data.data : todo))
+     
+   
+  };
+  
+
+  // Criar o metodo put
+
   return (
     <div>
       <h1>To-Do List</h1>
@@ -55,8 +76,14 @@ export default function Home() {
       <ul>
         {todos.map((todo) => (
           <li key={todo._id}>
-            {todo.title}
+            {todo.title}- {todo.completed?' Concluido ':' Pendente '}
+          
+            {/* button -concliuida - ança o metodo para editar */}
+            <input type="checkbox" checked={todo.completed} onChange={() => updateTodo(todo._id, todo.completed)}
+            />
+            
             <button onClick={() => deleteTodo(todo._id)}>Excluir</button>
+            
           </li>
         ))}
       </ul>
