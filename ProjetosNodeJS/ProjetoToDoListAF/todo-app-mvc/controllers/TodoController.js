@@ -5,49 +5,32 @@ import connectMongo from "@/utils/dbConnect";
 
 // READ
 export const getTodos = async () => {
-    connectMongo;
-    try {
-        return await Todo.find();
-    } catch (error) {
-        console.error(error);
-    }
-};
+    await connectMongo();
+    return await Todo.find({});
+  };
+  
 
 //CREATE
 export const createTodo = async (data) => {
-    connectMongo;
-    try {
-        return await Todo.create(data);
-
-    } catch (error) {
-        console.error(error);
-    }
-
-};
+    await connectMongo();
+    return await Todo.create(data);
+  };
+  
 
 //UPDATE
 export const updateTodo = async (id, data) => {
-    connectMongo();
-    try {
-        return await Todo.findByIdAndUpdate(id, data, {
-            new: true,
-            runValidators: true,
-        });
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
+    await connectMongo();
+    return await Todo.findByIdAndUpdate(id, data, {
+      new: true,
+      runValidators: true,
+    });
+  };
+  
 
 //DELETE
 export const deleteTodo = async (id) => {
-
-    connectMongo();
-    try {
-        return await Todo.deleteOne({ _id: id });
-    }
-    catch (error) {
-        console.error(error);
-    }
-};
+    await connectMongo();
+    return await Todo.deleteOne({ _id: id });
+  };
+  
 
