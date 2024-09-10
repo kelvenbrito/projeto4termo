@@ -1,16 +1,14 @@
-
 'use client';
 
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { JsonWebTokenError } from 'jsonwebtoken';
 
 
-export default function TasksPage() {
+export default function TaskPage() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
-  const [editTaskId, setEditTaskId] = useState(null);
-  const [editTitle, setEditTitle] = useState('');
   const router = useRouter();
 
 
@@ -18,23 +16,23 @@ export default function TasksPage() {
     const fetchTasks = async () => {
       const token = localStorage.getItem('token');
       if (!token) {
-        router.push('/login');
+        router.push('/login'); // Redireciona para login se o usuário não estiver autenticado
         return;
       }
 
-
+      
       const response = await fetch('/api/tasks', {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`, // Envia o token no header da requisição
         },
       });
 
 
       if (response.ok) {
         const data = await response.json();
-        setTasks(data.data);
+        setTasks(data.tasks);
       } else {
-        router.push('/login');
+        router.push('/login'); // Redireciona para login se houver erro
       }
     };
 
@@ -55,54 +53,23 @@ export default function TasksPage() {
     });
 
 
-    if (response.ok) {
-      const data = await response.json();
-      setTasks([...tasks, data.data]);
-      setNewTask('');
-    }
+    const data = await response.json();
+    setTasks([...tasks, data.task]);
+    setNewTask('');
   };
 
 
   const deleteTask = async (id) => {
     const token = localStorage.getItem('token');
-    await fetch(`/api/tasks`, {
+    await fetch(`/api/tasks?id=${id}`, {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ id }),
     });
+
+
     setTasks(tasks.filter((task) => task._id !== id));
-  };
-
-
-  const startEditTask = (task) => {
-    setEditTaskId(task._id);
-    setEditTitle(task.title);
-  };
-
-
-  const updateTask = async () => {
-    const token = localStorage.getItem('token');
-    const response = await fetch(`/api/tasks`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ id: editTaskId, title: editTitle }),
-    });
-
-
-    if (response.ok) {
-      const data = await response.json();
-      setTasks(
-        tasks.map((task) => (task._id === data.data._id ? data.data : task))
-      );
-      setEditTaskId(null);
-      setEditTitle('');
-    }
   };
 
 
@@ -111,36 +78,19 @@ export default function TasksPage() {
       <h1>To-Do List</h1>
       <input
         type="text"
-        placeholder="Nova tarefa"
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
+        placeholder="Nova tarefa"
       />
       <button onClick={addTask}>Adicionar Tarefa</button>
       <ul>
         {tasks.map((task) => (
           <li key={task._id}>
-            {editTaskId === task._id ? (
-              <>
-                <input
-                  type="text"
-                  value={editTitle}
-                  onChange={(e) => setEditTitle(e.target.value)}
-                />
-                <button onClick={updateTask}>Salvar</button>
-              </>
-            ) : (
-              <>
-                {task.title}
-                <button onClick={() => deleteTask(task._id)}>Excluir</button>
-                <button onClick={() => startEditTask(task)}>Editar</button>
-              </>
-            )}
+            {task.title}
+            <button onClick={() => deleteTask(task._id)}>Excluir</button>
           </li>
         ))}
       </ul>
     </div>
   );
 }
-
-
-

@@ -3,10 +3,11 @@ import connectMongo from "@/utils/dbConnect";
 
 
 //CRUD
-export const getTask = async () => {
+export const getTask = async (userId) => {
     await connectMongo();
-    return await Task.find();
+    return await Task.find(userId);
 }
+
 
 
 export const createTask = async (data) => {

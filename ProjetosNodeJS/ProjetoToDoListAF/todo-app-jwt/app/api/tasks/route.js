@@ -1,10 +1,11 @@
-import { getTask,createTask } from "@/controllers/TaskController";
+import { getTask, createTask } from "@/controllers/TaskController";
 import { NextResponse } from "next/server";
 
 
-export async function GET() {
+export async function GET(request) {
     try {
-        const tasks = await getTask();
+        const userId = request.user.userId;
+        const tasks = await getTask(userId);
         return NextResponse.json({
             success:true,
             data:tasks
