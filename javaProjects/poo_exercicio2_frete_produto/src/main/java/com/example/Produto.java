@@ -9,11 +9,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-
 public abstract class Produto {
-   
+    //Atributo
     private String nome;
     private double preco;
 
-    public abstract double calcularFrete();
+public abstract double calcularPeso();
+
+    
 }
