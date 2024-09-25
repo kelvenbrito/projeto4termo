@@ -3,6 +3,8 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import lombok.Getter;
 import lombok.Setter;
 @Getter
@@ -41,11 +43,13 @@ public class Curso {
     }
 
     // Método lançar nota
-    public void atribuirNotaNome(String nomeAluno, double notaAluno) {
+    public void atribuirNota() {
+        if (alunos.size()==0) {
+            
+        }else{
         for (Aluno aluno : alunos) {// Percorrer arraylist
-            if (aluno.getNome().equalsIgnoreCase(nomeAluno)) {
-                aluno.setNota(notaAluno);
-                return;
+           double nota = Double.parseDouble(JOptionPane.showInputDialog("Nota do "+aluno.getNome()+":"));
+           aluno.setNota(nota);
             }
 
         }
