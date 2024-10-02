@@ -2,6 +2,7 @@ package com.example;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.io.BufferedReader;
+import java.io.InputStreamReader;
 public class LeituraAPI {
     public void exemplo(){
         try {
@@ -16,11 +17,17 @@ public class LeituraAPI {
 
             //conexão estabelecida
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            //Laço de repetição
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-        
-    }
-    
-}
+             //laço de repetição
+             String linha;
+             StringBuffer conteudo = new StringBuffer();
+             while ((linha = br.readLine()) != null) {
+                 conteudo.append(linha);
+             }
+             br.close();
+             System.out.println(conteudo.toString());
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         
+     }
+ }
