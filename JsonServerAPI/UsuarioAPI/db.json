@@ -1,19 +1,23 @@
 {
   "usuarios": [
     {
-      "nome": "Maria",
-      "idade": "25",
-      "endereco": "Rua 1",
-      "id": "7664"
+      "id": "5287",
+      "nome": "pedro",
+      "idade": 37,
+      "Endereco": "Rua a"
     },
     {
-      "nome": "Joaõ",
-      "idade": "30",
-      "endereco": "Rua 2",
-      "id": "5633"
+      "id": "eb44",
+      "idade": 45,
+      "endereco": "Rua c",
+      "nome": "Ana"
+    },
+    {
+      "id": "4839",
+      "idade": 45,
+      "endereco": "Rua c",
+      "nome": "Ana"
     }
   ],
-  "produtos":[
-    
-  ]
+  "produtos": []
 }
