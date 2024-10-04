@@ -3,16 +3,19 @@ package com.example;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class ProdutoController {
     private List<Produto> produtos;
     private Connection con;
     private Statement stmt;
     private ResultSet rs;
+    private String nomeMaisCaro;
+    private String nomeMaisBarato;
+    private double mediaPreco;
 
     public ProdutoController() {
         produtos = new ArrayList<>();
@@ -20,19 +23,18 @@ public class ProdutoController {
 
     public void getConnection() {
         try {
-            // estabelece a conexão
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
+            con = DriverManager.getConnection(
+                    "jdbc:postgresql://localhost:5432/postgres",
+                    "postgres",
                     "postgres");
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-    public void closeConection() {
+    public void closeConnection() {
         try {
-            if (rs != null)
-                rs.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,21 +45,59 @@ public class ProdutoController {
         getConnection();
         try {
             stmt = con.createStatement();
-            rs = stmt.executeQuery("Select * FROM produtos");
+            rs = stmt.executeQuery("SELECT * FROM produtos");
             while (rs.next()) {
                 Produto produto = new Produto(
-                rs.getInt("id"), 
-                rs.getString("nome"), 
-                rs.getDouble("preco"));
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getDouble("preco"));
                 produtos.add(produto);
-
             }
             System.out.println(produtos.toString());
-        } catch (Exception e) {
+
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            closeConection();
+            closeConnection();
         }
 
     }
+
+    public double getMediaPreco() {
+        listarProdutos();
+        // calcular a média
+        mediaPreco = 0;
+        for (Produto produto : produtos) {
+            mediaPreco += produto.getPreco();
+        }
+        mediaPreco /= produtos.size();
+        return mediaPreco;
+    }
+
+    public String getNomeMaisBarato() {
+        listarProdutos();
+        // achar os mais barato
+        double menorPreco = Double.MAX_VALUE;
+        for (Produto produto : produtos) {
+            if (menorPreco >= produto.getPreco()) {
+                menorPreco = produto.getPreco();
+                nomeMaisBarato = produto.getNome();
+            }
+        }
+        return nomeMaisBarato;
+    }
+
+    public String getNomeMaisCaro() {
+        listarProdutos();
+        // achar o mais caro
+        double maiorPreco = 0;
+        for (Produto produto : produtos) {
+            if (maiorPreco <= produto.getPreco()) {
+                maiorPreco = produto.getPreco();
+                nomeMaisCaro = produto.getNome();
+            }
+        }
+        return nomeMaisCaro;
+    }
+
 }
