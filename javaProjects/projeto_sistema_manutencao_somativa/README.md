@@ -123,3 +123,42 @@ Risco: Falhas na Integração com API
     Impacto: Médio – A geração lenta de relatórios ou cálculos incorretos podem reduzir a confiabilidade do sistema.
     Mitigação: Usar algoritmos otimizados para cálculos e técnicas como cacheamento. Implementar relatórios assíncronos para que os usuários não precisem esperar a conclusão das operações mais pesadas.
 
+Teste API
+
+
+Maquinas
+
+GET:
+![alt text](img/get_img.png)
+
+POST:
+![alt text](img/post_img.png)
+
+PUT:
+![alt text](img/image.png)
+
+![alt text](img/put_img.png)
+
+DELETE
+![alt text](img/delete_img.png)
+
+Manutenções
+
+GET:
+![alt text](img/Manutencao_get_img.png)
+
+POST:
+![alt text](img/Manutencao_post_img.png)
+
+Falhas
+
+GET:
+![alt text](img/Falha_get_img.png)
+
+POST:
+![alt text](img/Falha_post_img.png)
+
+tecnicos
+
+POST:
+![alt text](img/tecnicos_get.png)

@@ -1,0 +1,82 @@
+{
+  "maquinas": [
+    {
+      "id": "1",
+      "codigo": "M001",
+      "nome": "Torno CNC",
+      "modelo": "Delta CNC",
+      "fabricante": "Siemens",
+      "dataAquisicao": "2022-06-10",
+      "tempoVidaEstimado": 10,
+      "localizacao": "Linha 4",
+      "detalhes": "Operação em alta precisão",
+      "manual": "URL do manual"
+    },
+    {
+      "id": "2",
+      "codigo": "M012",
+      "nome": " Prensas hidráulicas",
+      "modelo": "MPH15",
+      "fabricante": "MARCON",
+      "dataAquisicao": "2022-08-10",
+      "tempoVidaEstimado": 12,
+      "localizacao": "Linha 2",
+      "detalhes": "Operação em alta precisão",
+      "manual": "URL do manual"
+    }
+  ],
+  "historicoManutencao": [
+    {
+      "id": "1",
+      "maquinaId": 1,
+      "data": "2024-10-07",
+      "tipo": "Preventiva",
+      "pecasTrocadas": "Correia",
+      "tempoDeParada": 4,
+      "tecnicoId": "João Silva",
+      "observacoes": "Substituição preventiva da correia."
+    },
+    {
+      "id": "1",
+      "maquinaId": 2,
+      "data": "2024-12-15",
+      "tipo": "Preventiva",
+      "pecasTrocadas": "Saca Rolamento",
+      "tempoDeParada": 3,
+      "tecnicoId": "Pedro SIlva",
+      "observacoes": "Substituição preventiva da Saca Rolamentos E Coletores."
+    }
+  ],
+  "falhas": [
+    {
+      "id": "1",
+      "maquinaId": 1,
+      "data": "2024-09-28",
+      "problema": "Falha no motor",
+      "prioridade": "Alta",
+      "operador": "Carlos Lima"
+    },
+    {
+      "id": "2",
+      "maquinaId": 2,
+      "data": "2024-10-30",
+      "problema": "Falha na bomba hidráulica",
+      "prioridade": "Alta",
+      "operador": "Pedro Augusto"
+    }
+  ],
+  "tecnicos": [
+    {
+      "id": "1",
+      "nome": "João Silva",
+      "especialidade": "Mecânica",
+      "disponibilidade": "Livre"
+    },
+    {
+      "id": "2",
+      "nome": "Pedro Silva",
+      "especialidade": "eletroeletrônica",
+      "disponibilidade": "Ocupado"
+    }
+  ]
+}
