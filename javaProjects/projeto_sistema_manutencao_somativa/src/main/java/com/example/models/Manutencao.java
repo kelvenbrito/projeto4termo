@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Manutencao {
     private String id;
     private String maquinaID;
-    private LocalDate data;
+    private String data;
     private String tipo;
     private String pecasTrocadas;
     private long tempoDeParada;

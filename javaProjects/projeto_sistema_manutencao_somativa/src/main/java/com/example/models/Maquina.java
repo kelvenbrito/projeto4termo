@@ -11,13 +11,13 @@ import java.time.*;
 @Getter
 @Setter
 
-public class Maquinas {
+public class Maquina {
     private String id;
     private String codigo;
     private String nome;
     private String modelo;
     private String fabricante;
-    private LocalDate dataAquisicao;
+    private String dataAquisicao;
     private long tempoVidaEstimado;
     private String localizacao;
     private String detalhes;
