@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -13,11 +14,10 @@ import lombok.Setter;
 
 public class Falha {
     private String id;
-    private long maquinaID;
+    private String maquinaID;
     private LocalDate data;
-    private String tipo;
-    private String pecasTrocadas;
-    private long tempoDeParada;
-    private String tecnicoID;
-    private String observacoes;
+    private String problema;
+    private String prioridade;
+    private String operador;
+   
 }

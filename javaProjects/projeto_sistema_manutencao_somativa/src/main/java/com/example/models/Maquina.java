@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.time.*;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +17,7 @@ public class Maquina {
     private String nome;
     private String modelo;
     private String fabricante;
-    private String dataAquisicao;
+    private LocalDate dataAquisicao;
     private long tempoVidaEstimado;
     private String localizacao;
     private String detalhes;
