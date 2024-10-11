@@ -1,8 +1,6 @@
 package com.example.api;
 
-import java.net.URL;
-import java.io.IOException;
-import java.net.HttpURLConnection;
+
 import java.util.*;
 import java.time.LocalDate;
 
@@ -13,7 +11,6 @@ import com.example.models.Maquina;;
 
 public class MaquinaAPI {
 
-    private URL url;
 
     public static List<Maquina> getMaquinas() {
         String json = ApiConnection.getData("maquinas");
@@ -40,37 +37,27 @@ public class MaquinaAPI {
         return maquinas;
     }
 
-    public void createUser(Maquina maquina) throws IOException {
+    public  static void postMaquina(Maquina maquina) {
         // estabelecer conexão
 
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Type", "application/json; utf-8");
-        con.setRequestProperty("Accept", "application/json");
-        con.setDoOutput(true);
-        // informações necessárias para o post
-        // criando o Objeto Json
+    
         JSONObject maquinaJson = new JSONObject();
         maquinaJson.put("id", maquina.getId());
         maquinaJson.put("codigo", maquina.getCodigo());
         maquinaJson.put("nome", maquina.getNome());
         maquinaJson.put("modelo", maquina.getModelo());
         maquinaJson.put("fabricante", maquina.getFabricante());
-        maquinaJson.put("dataAquisicao", maquina.getDataAquisicao());
+        maquinaJson.put("dataAquisicao", maquina.getDataAquisicao().toString());
         maquinaJson.put("tempoVidaEstimado", maquina.getTempoVidaEstimado());
-        maquinaJson.put("localizacao", maquina.getFabricante());
-        maquinaJson.put("fabricante", maquina.getLocalizacao());
-        maquinaJson.put("fabricante", maquina.getFabricante());
-        // "id": "1",
-        // "codigo": "M001",
-        // "nome": "Torno CNC",
-        // "modelo": "Delta CNC",
-        // "fabricante": "Siemens",
-        // "dataAquisicao": "2022-06-10",
-        // "tempoVidaEstimado": 10,
-        // "localizacao": "Linha 4",
-        // "detalhes": "Operação em alta precisão",
-        // "manual": "URL do manual"
+        maquinaJson.put("localizacao", maquina.getLocalizacao());
+        maquinaJson.put("detalhes", maquina.getDetalhes());
+        maquinaJson.put("manual", maquina.getManual());
+       if (!maquinaJson.isEmpty()) {
+        
+       }
+       
+        ApiConnection.postData("maquinas", maquinaJson.toString());
+
 
     }
 }

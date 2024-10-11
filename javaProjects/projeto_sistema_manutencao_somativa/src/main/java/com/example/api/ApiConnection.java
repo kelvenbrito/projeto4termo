@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 
@@ -34,35 +36,95 @@ public class ApiConnection {
         }
     }
 
-    public static String postData(String endpoint) {
+    public static void postData(String endPoint, String inputData) {
         try {
-            URL url = new URL(API_URL + endpoint);
+            URL url = new URL(API_URL + endPoint);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json; utf-8");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
-         // enviar dos dados para a API
-         try (BufferedWriter bw = new BufferedWriter(
-            new OutputStreamWriter(connection.getOutputStream(), "UTF-8"))) {
-        bw.write(endpoint.toString());
-        bw.flush();
+
+            // enviar dos dados para a API
+            try (BufferedWriter bw = new BufferedWriter(
+                    new OutputStreamWriter(connection.getOutputStream(), "UTF-8"))) {
+                bw.write(inputData.toString());
+                bw.flush();
+            }
+            // Verificar o status da resposta
+            int status = connection.getResponseCode();
+            if (status != HttpURLConnection.HTTP_CREATED) { // HTTP 201 Created
+                throw new Exception("Erro ao criar usuário: " + status);
+            }
+
+            System.out.println("Usuario Cadastrado com Sucesso");
+
+            connection.disconnect();
+
+            // Retorna o conteúdo da resposta como string
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
     }
-    // Verificar o status da resposta
-    int status = connection.getResponseCode();
-    if (status != HttpURLConnection.HTTP_CREATED) { // HTTP 201 Created
-        throw new Exception("Erro ao criar usuário: " + status);
+
+    public static void putData(String endpoint, String id, String inputData) {
+        try {
+            // Cria uma URL completa com o endpoint
+            URL url = new URL(API_URL + endpoint + id);
+            // estabelecer conexão
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("PUT");
+            connection.setRequestProperty("Content-Type", "application/json; utf-8");
+            connection.setRequestProperty("Accept", "application/json");
+            connection.setDoOutput(true);
+
+            // enviar dos dados para a API
+            try (BufferedWriter bw = new BufferedWriter(
+                    new OutputStreamWriter(connection.getOutputStream(), "UTF-8"))) {
+                bw.write(inputData.toString());
+                bw.flush();
+            }
+
+            // verificar status
+            if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                throw new Exception("Erro de Conexão");
+            }
+            getData(endpoint + id);
+
+            connection.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
     }
 
-    System.out.println("Usuario Cadastrado com Sucesso");
+    public static void deleteData(String endpoint, String id) {
+        try {
+            // Cria uma URL completa com o endpoint
+            URL url = new URL(API_URL + endpoint + id);
+            // estabelecer conexão
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("DELETE");
+            connection.setRequestProperty("Accept", "application/json");
+            int status = connection.getResponseCode();
+            if (status != 200 && status != 204) {
+                throw new Exception("Erro de Conexão");
+            }
 
-    
-    connection.disconnect();
-    return content.toString();
+            System.out.println("Deletado com sucesso");
+            getData(endpoint + id);
 
-} catch (Exception e) {
-    e.printStackTrace();
-}
+            connection.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
     }
 
 }

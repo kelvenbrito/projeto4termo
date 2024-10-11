@@ -17,6 +17,7 @@ public class MaquinaController {
 
     //Criar
     public void createMaquina(Maquina maquina){
+        MaquinaAPI.postMaquina(maquina);//adicionar a API no crontrolle
         this.maquinas.add(maquina);
     }
 

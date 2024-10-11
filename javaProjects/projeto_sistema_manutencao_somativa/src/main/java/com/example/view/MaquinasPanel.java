@@ -3,6 +3,8 @@ package com.example.view;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import com.example.controllers.MaquinaController;
@@ -56,6 +58,16 @@ public class MaquinasPanel extends JPanel {
         this.add(painelInferior, BorderLayout.SOUTH);
 
         //Criar as ActionListener para Botões
+        btnCadastrarMaquina.addActionListener(new ActionListener(){
+        
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //criar o método de cadastrar
+                //pegar as informações em um formulario
+                //gravar o objeto de maquinas
+                //chamar o controller
+            }
+        });
     }
 
 }
