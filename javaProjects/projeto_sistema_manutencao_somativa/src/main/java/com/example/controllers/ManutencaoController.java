@@ -1,37 +1,37 @@
 package com.example.controllers;
 import java.util.*;
 
-import com.example.api.MaquinaAPI;
-import com.example.models.Maquina;
+import com.example.api.ManutencaoAPI;
+import com.example.models.Manutencao;
+
 
 
 public class ManutencaoController {
-        private List<Maquina> maquinas;
+        private List<Manutencao> manutencoes;
     public ManutencaoController() {
-       maquinas = new ArrayList<>();
+       manutencoes = new ArrayList<>();
     }
 
      //Métodos - CRUD
 
     //Criar
-    public void createFalha(Maquina maquina){
-        this.maquinas.add(maquina);
+    public void createFalha(Manutencao manutencao){
+        ManutencaoAPI.postManutencao(manutencao);
+        this.manutencoes.add(manutencao);
     }
 
     //list
-    public List<Maquina> readMaquina(){
-      maquinas = MaquinaAPI.getMaquinas();
-      return maquinas;
+    public List<Manutencao> readManutencao(){
+      manutencoes = ManutencaoAPI.getManutencao();
+      return manutencoes;
     }
 
     //update
-    public void updateMaquina(int posicao,Maquina maquina){
-        maquinas.set(posicao,maquina);
+    public void updateMaquina(int posicao,Manutencao manutencao){
+        ManutencaoAPI.putManutencao(manutencao);
+        manutencoes.set(posicao,manutencao);
     }
 
-    //Delete
-    public void deleteMaquina(int posicao){
-        maquinas.remove(posicao);
-    }
+    
 
 }

@@ -23,18 +23,17 @@ public class MaquinaController {
 
     //list
     public List<Maquina> readMaquina(){
+        
       maquinas = MaquinaAPI.getMaquinas();
       return maquinas;
     }
 
     //update
     public void updateMaquina(int posicao,Maquina maquina){
+        MaquinaAPI.putMaquina(maquina);//método para atualizar
         maquinas.set(posicao,maquina);
     }
 
-    //Delete
-    public void deleteMaquina(int posicao){
-        maquinas.remove(posicao);
-    }
+
 
 }

@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Falha {
+public class Falhas {
     private String id;
     private String maquinaID;
     private LocalDate data;

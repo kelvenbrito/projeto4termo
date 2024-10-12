@@ -69,10 +69,10 @@ public class ApiConnection {
         }
     }
 
-    public static void putData(String endpoint, String id, String inputData) {
+    public static void putData(String endpoint, String inputData , String id) {
         try {
             // Cria uma URL completa com o endpoint
-            URL url = new URL(API_URL + endpoint + id);
+            URL url = new URL(API_URL + endpoint+ "/"+id);
             // estabelecer conexão
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("PUT");
@@ -87,11 +87,12 @@ public class ApiConnection {
                 bw.flush();
             }
 
-            // verificar status
-            if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                throw new Exception("Erro de Conexão");
+          // Verificar o status da resposta
+          int status = connection.getResponseCode();
+          if (status != HttpURLConnection.HTTP_OK) {
+                throw new Exception("Erro de Conexão"+status);
             }
-            getData(endpoint + id);
+            getData(endpoint +"/"+ id);
 
             connection.disconnect();
 
@@ -105,18 +106,18 @@ public class ApiConnection {
     public static void deleteData(String endpoint, String id) {
         try {
             // Cria uma URL completa com o endpoint
-            URL url = new URL(API_URL + endpoint + id);
+            URL url = new URL(API_URL + endpoint + "/"+id);
             // estabelecer conexão
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("DELETE");
-            connection.setRequestProperty("Accept", "application/json");
+            connection.setDoOutput(true);
             int status = connection.getResponseCode();
-            if (status != 200 && status != 204) {
-                throw new Exception("Erro de Conexão");
+             if (status != HttpURLConnection.HTTP_OK) {
+                throw new Exception("Erro ao deletar usuario" + status);
             }
 
             System.out.println("Deletado com sucesso");
-            getData(endpoint + id);
+            getData(endpoint +"/"+ id);
 
             connection.disconnect();
 

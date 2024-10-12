@@ -28,7 +28,7 @@
   "historicoManutencao": [
     {
       "id": "1",
-      "maquinaId": 1,
+      "maquinaId": "1",
       "data": "2024-10-07",
       "tipo": "Preventiva",
       "pecasTrocadas": "Correia",
@@ -37,8 +37,8 @@
       "observacoes": "Substituição preventiva da correia."
     },
     {
-      "id": "1",
-      "maquinaId": 2,
+      "id": "2",
+      "maquinaId": "2",
       "data": "2024-12-15",
       "tipo": "Preventiva",
       "pecasTrocadas": "Saca Rolamento",
@@ -50,7 +50,7 @@
   "falhas": [
     {
       "id": "1",
-      "maquinaId": 1,
+      "maquinaId": "1",
       "data": "2024-09-28",
       "problema": "Falha no motor",
       "prioridade": "Alta",
@@ -58,7 +58,7 @@
     },
     {
       "id": "2",
-      "maquinaId": 2,
+      "maquinaId": "2",
       "data": "2024-10-30",
       "problema": "Falha na bomba hidráulica",
       "prioridade": "Alta",

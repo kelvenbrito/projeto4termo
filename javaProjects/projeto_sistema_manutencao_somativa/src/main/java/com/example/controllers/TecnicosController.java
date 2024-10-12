@@ -17,6 +17,7 @@ public class TecnicosController {
 
     //Criar
     public void createTecnicos(Tecnicos tecnicos){
+        TecnicosAPI.postTecnicos(tecnicos);//adicionar a API no crontrolle
         this.tecnicos.add(tecnicos);
     }
 
@@ -28,11 +29,13 @@ public class TecnicosController {
 
     //update
     public void updateTecnicos(int posicao,Tecnicos tecnico){
+        TecnicosAPI.putTecnicos(tecnico);
         tecnicos.set(posicao,tecnico);
     }
 
     //Delete
-    public void deleteTecnicos(int posicao){
+    public void deleteTecnicos(int posicao, String id){
+        TecnicosAPI.deleteTecnicos(id);
         tecnicos.remove(posicao);
     }
 }

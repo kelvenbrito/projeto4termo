@@ -11,7 +11,7 @@ public class TecnicosAPI {
     // private URL url;
 
     public static List<Tecnicos> getTecnicos() {
-        String json = ApiConnection.getData("Tecnicos");
+        String json = ApiConnection.getData("tecnicos");
         List<Tecnicos> tecnicos = new ArrayList<>();
         if (json != null) {
             JSONArray jsonArray = new JSONArray(json);
@@ -30,4 +30,42 @@ public class TecnicosAPI {
 
         return tecnicos;
     }
+
+     public  static void postTecnicos(Tecnicos tecnico) {
+        // estabelecer conexão
+
+    
+        JSONObject tecnicoJson = new JSONObject();
+        tecnicoJson.put("id", tecnico.getId());
+        tecnicoJson.put("nome", tecnico.getNome());
+        tecnicoJson.put("especialidade", tecnico.getEspecialidade());
+        tecnicoJson.put("disponibilidade", tecnico.getDisponibilidade());
+       if (!tecnicoJson.isEmpty()) {
+        ApiConnection.postData("tecnicos", tecnicoJson.toString());
+       }
+       
+     
+    }
+
+    public  static void putTecnicos(Tecnicos tecnico) {
+        // estabelecer conexão
+        JSONObject tecnicoJson = new JSONObject();
+        tecnicoJson.put("id", tecnico.getId());
+        tecnicoJson.put("nome", tecnico.getNome());
+        tecnicoJson.put("especialidade", tecnico.getEspecialidade());
+        tecnicoJson.put("disponibilidade", tecnico.getDisponibilidade());
+       if (!tecnicoJson.isEmpty()) {
+        ApiConnection.postData("tecnicos", tecnicoJson.toString());
+       }
+       
+    }
+
+
+    public  static void deleteTecnicos(String id) {
+        if (!id.isEmpty()) {
+            ApiConnection.deleteData("tecnicos", id);
+        }
+    }
 }
+
+

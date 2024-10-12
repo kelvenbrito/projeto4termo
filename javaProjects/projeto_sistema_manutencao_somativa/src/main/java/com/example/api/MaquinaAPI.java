@@ -53,11 +53,36 @@ public class MaquinaAPI {
         maquinaJson.put("detalhes", maquina.getDetalhes());
         maquinaJson.put("manual", maquina.getManual());
        if (!maquinaJson.isEmpty()) {
-        
+        ApiConnection.postData("maquinas", maquinaJson.toString());
        }
        
-        ApiConnection.postData("maquinas", maquinaJson.toString());
+     
+    }
+
+    public  static void putMaquina(Maquina maquina) {
+        // estabelecer conexão
+        JSONObject maquinaJson = new JSONObject();
+        maquinaJson.put("id", maquina.getId());
+        maquinaJson.put("codigo", maquina.getCodigo());
+        maquinaJson.put("nome", maquina.getNome());
+        maquinaJson.put("modelo", maquina.getModelo());
+        maquinaJson.put("fabricante", maquina.getFabricante());
+        maquinaJson.put("dataAquisicao", maquina.getDataAquisicao().toString());
+        maquinaJson.put("tempoVidaEstimado", maquina.getTempoVidaEstimado());
+        maquinaJson.put("localizacao", maquina.getLocalizacao());
+        maquinaJson.put("detalhes", maquina.getDetalhes());
+        maquinaJson.put("manual", maquina.getManual());
+       if (!maquinaJson.isEmpty()) {
+        ApiConnection.putData("maquinas", maquinaJson.toString(),maquina.getId());
+       }
+       
+      
+    }
 
 
+    public  static void deleteMaquina(String id) {
+        if (!id.isEmpty()) {
+            ApiConnection.deleteData("maquinas", id);
+        }
     }
 }

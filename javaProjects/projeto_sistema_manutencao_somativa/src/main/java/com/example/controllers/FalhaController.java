@@ -2,11 +2,11 @@ package com.example.controllers;
 import java.util.*;
 
 import com.example.api.FalhaAPI;
-import com.example.models.Falha;
+import com.example.models.Falhas;
 
 
 public class FalhaController {
-     private List<Falha> falhas;
+     private List<Falhas> falhas;
 
 public FalhaController() {
       falhas = new ArrayList<>();
@@ -15,25 +15,24 @@ public FalhaController() {
   //Métodos - CRUD
 
     //Criar
-    public void createFalha(Falha falha){
+    public void createFalha(Falhas falha){
+      FalhaAPI.postFalha(falha);
         this.falhas.add(falha);
     }
 
     //list
-    public List<Falha> readFalha(){
+    public List<Falhas> readFalha(){
       falhas = FalhaAPI.getFalha();
       return falhas;
     }
 
     //update
-    public void updateFalha(int posicao,Falha falha){
+    public void updateFalha(int posicao,Falhas falha){
+      FalhaAPI.putFalha(falha);
         falhas.set(posicao,falha);
     }
 
-    //Delete
-    public void deleteFalha(int posicao){
-        falhas.remove(posicao);
-    }
+  
 
 }
 

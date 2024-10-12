@@ -19,6 +19,8 @@ public class MaquinasPanel extends JPanel {
     private DefaultTableModel tableModel;
     private JButton btnSalvarAlteracoes;
     private JButton btnCadastrarMaquina;
+    private JTextField inputNome;
+    private JTextField inputID;
 
     //COnstrutor
     public MaquinasPanel() {
@@ -57,16 +59,23 @@ public class MaquinasPanel extends JPanel {
         painelInferior.add(btnSalvarAlteracoes);
         this.add(painelInferior, BorderLayout.SOUTH);
 
+
+        inputNome = new JTextField(20);
+
         //Criar as ActionListener para Botões
+        Maquina novaMaquina = new Maquina();
+        MaquinaController mc = new MaquinaController();
         btnCadastrarMaquina.addActionListener(new ActionListener(){
         
             @Override
             public void actionPerformed(ActionEvent e) {
-                //criar o método de cadastrar
-                //pegar as informações em um formulario
-                //gravar o objeto de maquinas
-                //chamar o controller
+               novaMaquina.setNome(inputNome.getText());
+               mc.createMaquina(novaMaquina);
             }
+        });
+        //
+        btnSalvarAlteracoes.addActionListener(e -> {
+            
         });
     }
 
