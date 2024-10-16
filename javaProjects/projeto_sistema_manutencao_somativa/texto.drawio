@@ -1,62 +1,62 @@
 <mxfile host="65bd71144e">
     <diagram id="Gkpp9KJA73H9YZ3me1ma" name="Page-1">
-        <mxGraphModel dx="488" dy="298" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="675" dy="467" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="110" y="50" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="4" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="20" y="1110" width="150" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="Maquina " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="5" value="Maquina " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="50" y="1120" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="6" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="20" y="1160" width="150" height="220" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="&amp;nbsp;- id: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- codigo: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- nome: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- modelo: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- fabricante: string&lt;br&gt;&amp;nbsp;- dataAquisicao: date&amp;nbsp;&lt;br&gt;&amp;nbsp;- tempoVidaEstimado: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- localizacao: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- detalhes: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- manual: string&amp;nbsp;&lt;br&gt;&lt;br&gt;+----------------------------------+&lt;br&gt;&amp;nbsp;+ getMaquina()&amp;nbsp;&lt;br&gt;&amp;nbsp;+ setMaquina()&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="7" value="&amp;nbsp;- id: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- codigo: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- nome: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- modelo: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- fabricante: string&lt;br&gt;&amp;nbsp;- dataAquisicao: date&amp;nbsp;&lt;br&gt;&amp;nbsp;- tempoVidaEstimado: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- localizacao: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- detalhes: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- manual: string&amp;nbsp;&lt;br&gt;&lt;br&gt;+----------------------------------+&lt;br&gt;&amp;nbsp;+ getMaquina()&amp;nbsp;&lt;br&gt;&amp;nbsp;+ setMaquina()&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry y="1160" width="190" height="220" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="220" y="1110" width="150" height="50" as="geometry"/>
+                <mxCell id="9" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="1110" width="150" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value=" Historico Manutencao " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="265" y="1120" width="60" height="30" as="geometry"/>
+                <mxCell id="10" value=" Historico Manutencao " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="235" y="1120" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="220" y="1160" width="150" height="220" as="geometry"/>
+                <mxCell id="11" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="1160" width="150" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;- id: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- maquinaId: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- data: date&amp;nbsp;&lt;br&gt;&amp;nbsp;- tipo: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- pecasTrocadas: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- tempoDeParada: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- tecnicoId: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- observacoes: string&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;+----------------------------------&lt;br&gt;+ getManutencao()&amp;nbsp;&lt;br&gt;&amp;nbsp;+ setManutencao()&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="220" y="1140" width="150" height="180" as="geometry"/>
+                <mxCell id="12" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;- id: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- maquinaId: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- data: date&amp;nbsp;&lt;br&gt;&amp;nbsp;- tipo: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- pecasTrocadas: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- tempoDeParada: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- tecnicoId: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- observacoes: string&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;+----------------------------------&lt;br&gt;+ getManutencao()&amp;nbsp;&lt;br&gt;&amp;nbsp;+ setManutencao()&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="1170" width="150" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="20" y="1410" width="150" height="50" as="geometry"/>
+                <mxCell id="13" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="1110" width="150" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="&amp;nbsp;Falha" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="65" y="1420" width="60" height="30" as="geometry"/>
+                <mxCell id="14" value="&amp;nbsp;Falha" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="575" y="1120" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="20" y="1460" width="150" height="220" as="geometry"/>
+                <mxCell id="15" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="1160" width="150" height="220" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="16" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="20" y="1470" width="150" height="350" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="&lt;br&gt;- id: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- maquinaId: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- data: date&amp;nbsp;&lt;br&gt;&amp;nbsp;- problema: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- prioridade: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- operador: string&amp;nbsp;&lt;br&gt;+---------------------+&lt;br&gt;&amp;nbsp;+ getFalha()&amp;nbsp;&lt;br&gt;&amp;nbsp;+ setFalha()     " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="20" y="1430" width="150" height="220" as="geometry"/>
+                <mxCell id="18" value="&lt;br&gt;- id: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- maquinaId: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- data: date&amp;nbsp;&lt;br&gt;&amp;nbsp;- problema: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- prioridade: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- operador: string&amp;nbsp;&lt;br&gt;+---------------------+&lt;br&gt;&amp;nbsp;+ getFalha()&amp;nbsp;&lt;br&gt;&amp;nbsp;+ setFalha()     " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="1130" width="150" height="220" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="240" y="1410" width="150" height="50" as="geometry"/>
+                <mxCell id="19" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="1110" width="150" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value=" Tecnico  " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="285" y="1420" width="60" height="30" as="geometry"/>
+                <mxCell id="20" value=" Tecnico  " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="405" y="1120" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="240" y="1460" width="150" height="220" as="geometry"/>
+                <mxCell id="23" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="1160" width="150" height="220" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="&lt;br&gt;&amp;nbsp;- id: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- nome: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- especialidade: string&amp;nbsp;&lt;br&gt;|- disponibilidade: string&lt;br&gt;&amp;nbsp;&lt;br&gt;+---------------------+&lt;br&gt;&amp;nbsp;+ getTecnico()&amp;nbsp;&lt;br&gt;&amp;nbsp;+ setTecnico() " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="235" y="1410" width="160" height="240" as="geometry"/>
+                <mxCell id="24" value="&lt;br&gt;&amp;nbsp;- id: int&amp;nbsp;&lt;br&gt;&amp;nbsp;- nome: string&amp;nbsp;&lt;br&gt;&amp;nbsp;- especialidade: string&amp;nbsp;&lt;br&gt;|- disponibilidade: string&lt;br&gt;&amp;nbsp;&lt;br&gt;+---------------------+&lt;br&gt;&amp;nbsp;+ getTecnico()&amp;nbsp;&lt;br&gt;&amp;nbsp;+ setTecnico() " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="1120" width="160" height="240" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
