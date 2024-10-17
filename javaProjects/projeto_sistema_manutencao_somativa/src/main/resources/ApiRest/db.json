@@ -13,16 +13,52 @@
       "manual": "URL do manual"
     },
     {
-      "id": "2",
-      "codigo": "M012",
-      "nome": " Prensas hidráulicas",
-      "modelo": "MPH15",
-      "fabricante": "MARCON",
-      "dataAquisicao": "2022-08-10",
       "tempoVidaEstimado": 12,
-      "localizacao": "Linha 2",
-      "detalhes": "Operação em alta precisão",
-      "manual": "URL do manual"
+      "codigo": "dd",
+      "localizacao": "dd",
+      "nome": "dd",
+      "id": "2",
+      "fabricante": "dd",
+      "manual": "dd",
+      "modelo": "dd",
+      "dataAquisicao": "2022-06-10",
+      "detalhes": "dd"
+    },
+    {
+      "tempoVidaEstimado": 65,
+      "codigo": "4",
+      "localizacao": "ff",
+      "nome": "dd",
+      "id": "3",
+      "fabricante": "dd",
+      "manual": "ff",
+      "modelo": "dd",
+      "dataAquisicao": "2002-08-20",
+      "detalhes": "ff"
+    },
+    {
+      "id": "dd",
+      "tempoVidaEstimado": 12,
+      "codigo": "dd",
+      "localizacao": "dd",
+      "nome": "dd",
+      "fabricante": "dd",
+      "manual": "dd",
+      "modelo": "dd",
+      "dataAquisicao": "2022-06-10",
+      "detalhes": "dd"
+    },
+    {
+      "id": "dd",
+      "tempoVidaEstimado": 34,
+      "codigo": "dd",
+      "localizacao": "ff",
+      "nome": "dd",
+      "fabricante": "dd",
+      "manual": "dd",
+      "modelo": "dd",
+      "dataAquisicao": "2002-09-30",
+      "detalhes": "ff"
     }
   ],
   "historicoManutencao": [
@@ -38,12 +74,12 @@
     },
     {
       "id": "2",
-      "maquinaId": "2",
-      "data": "2024-12-15",
+      "maquinaId": "1",
+      "data": "2025-01-15",
       "tipo": "Preventiva",
       "pecasTrocadas": "Saca Rolamento",
       "tempoDeParada": 3,
-      "tecnicoId": "Pedro SIlva",
+      "tecnicoId": "Paulo Santos",
       "observacoes": "Substituição preventiva da Saca Rolamentos E Coletores."
     }
   ],
@@ -58,20 +94,14 @@
     },
     {
       "id": "2",
-      "maquinaId": "2",
-      "data": "2024-10-30",
+      "maquinaId": "1",
+      "data": "2024-01-03",
       "problema": "Falha na bomba hidráulica",
-      "prioridade": "Alta",
-      "operador": "Pedro Augusto"
+      "prioridade": "Media",
+      "operador": "Afonsio a silva"
     }
   ],
   "tecnicos": [
-    {
-      "id": "1",
-      "nome": "João Silva",
-      "especialidade": "Mecânica",
-      "disponibilidade": "Livre"
-    },
     {
       "id": "2",
       "nome": "Pedro Silva",
