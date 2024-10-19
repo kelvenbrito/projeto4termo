@@ -7,7 +7,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -22,6 +21,14 @@ import java.time.LocalDate;
 import com.example.controllers.MaquinaController;
 import com.example.models.Maquina;
 
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
+
 public class MaquinasPanel extends JPanel {
     // Atributos
     private MaquinaController maquinaController;
@@ -29,6 +36,7 @@ public class MaquinasPanel extends JPanel {
     private DefaultTableModel tableModel;
     private JButton btnEditar;
     private JButton btnCadastrarMaquina;
+    private JButton btnRelatorio;
     int esc = 0;
 
     // COnstrutor
@@ -37,8 +45,8 @@ public class MaquinasPanel extends JPanel {
         maquinaController = new MaquinaController();
 
         tableModel = new DefaultTableModel(new Object[] {
-                "ID", "Código", "Nome", "Fabricante", "Modelo", "Detalhes", "Data de Aquisicao", "Localização",
-                "Tempo Vida", "Manual"
+                "ID", "Nome", "Fabricante", "Modelo", "Detalhes", "Localização",
+                "Tempo Vida"
         }, 0);
         maquinasTable = new JTable(tableModel);
 
@@ -50,9 +58,11 @@ public class MaquinasPanel extends JPanel {
         // adicionar os botoes
         JPanel painelInferior = new JPanel(new FlowLayout(FlowLayout.CENTER));
         btnCadastrarMaquina = new JButton("Cadastrar");
-        btnEditar = new JButton("SEditar");
+        btnEditar = new JButton("Editar");
+        btnRelatorio = new JButton("Gerar relatorio");
         painelInferior.add(btnCadastrarMaquina);
         painelInferior.add(btnEditar);
+        painelInferior.add(btnRelatorio);
         this.add(painelInferior, BorderLayout.SOUTH);
 
         // Criar as ActionListener para Botões
@@ -73,11 +83,18 @@ public class MaquinasPanel extends JPanel {
             JanelaCadastroMaquina();
         });
 
+        btnRelatorio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gerarRelatorioPDF();
+            }
+        });
+
         this.setSize(500, 500);
     }
 
     // Método para abrir a nova janela de cadastro de máquina
-    private void JanelaCadastroMaquina() {
+    public void JanelaCadastroMaquina() {
         // Criar o diálogo
         JDialog dialog = new JDialog((Frame) SwingUtilities.getWindowAncestor(this), "Cadastrar Máquina", true);
         dialog.setSize(500, 500);
@@ -139,6 +156,7 @@ public class MaquinasPanel extends JPanel {
             if (selectedRow != -1) { // Verificar se alguma linha está selecionada
                 // Obter os valores da linha selecionada e preencher os campos
                 inputId.setText(tableModel.getValueAt(selectedRow, 0).toString());
+                inputId.setEnabled(false); 
                 inputcod.setText(tableModel.getValueAt(selectedRow, 1).toString());
                 inputNome.setText(tableModel.getValueAt(selectedRow, 2).toString());
                 inputFabricante.setText(tableModel.getValueAt(selectedRow, 3).toString());
@@ -163,6 +181,7 @@ public class MaquinasPanel extends JPanel {
                 // Criar nova máquina com os dados inseridos
                 Maquina novaMaquina = new Maquina();
                 novaMaquina.setId(inputId.getText());
+                
                 novaMaquina.setCodigo(inputcod.getText());
                 novaMaquina.setNome(inputNome.getText());
                 novaMaquina.setFabricante(inputFabricante.getText());
@@ -215,5 +234,62 @@ public class MaquinasPanel extends JPanel {
             });
         }
     }
+
+    public void gerarRelatorioPDF() {
+        try {
+            // Definir o caminho onde o PDF será salvo
+            String caminhoArquivo = "RelatoriosPDF/relatorio_maquinas.pdf";
+            
+            // Criar o documento
+            Document document = new Document();
+    
+            // Criar o PdfWriter associado ao documento e ao caminho do arquivo
+            PdfWriter.getInstance(document, new FileOutputStream(caminhoArquivo));
+    
+            // Abrir o documento para escrita
+            document.open();
+    
+            // Adicionar título ao relatório
+            document.add(new Paragraph("Relatório de Máquinas\n\n"));
+    
+            // Obter a lista de máquinas do controlador
+            List<Maquina> maquinas = maquinaController.readMaquina();
+    
+            // Iterar sobre todas as máquinas e adicionar seus dados no relatório
+            for (Maquina maquina : maquinas) {
+                // Adicionar as informações de cada máquina ao PDF usando os getters
+                document.add(new Paragraph("ID: " + maquina.getId()));
+                document.add(new Paragraph("Código: " + maquina.getCodigo()));
+                document.add(new Paragraph("Nome: " + maquina.getNome()));
+                document.add(new Paragraph("Fabricante: " + maquina.getFabricante()));
+                document.add(new Paragraph("Modelo: " + maquina.getModelo()));
+                document.add(new Paragraph("Data de Aquisição: " + maquina.getDataAquisicao().toString()));
+                document.add(new Paragraph("Detalhes: " + maquina.getDetalhes()));
+                document.add(new Paragraph("Localização: " + maquina.getLocalizacao()));
+                document.add(new Paragraph("Tempo de Vida Estimado: " + maquina.getTempoVidaEstimado()));
+                document.add(new Paragraph("Manual: " + maquina.getManual()));
+    
+                // Adiciona uma linha em branco entre as máquinas
+                document.add(new Paragraph("\n"));
+            }
+    
+            // Fechar o documento
+            document.close();
+    
+            System.out.println("Relatório gerado com sucesso: " + caminhoArquivo);
+
+                   // Abrir o PDF automaticamente
+                   File arquivoPdf = new File(caminhoArquivo);
+                   if (arquivoPdf.exists()) {
+                       Desktop.getDesktop().open(arquivoPdf);
+                   } else {
+                       System.out.println("Arquivo PDF não encontrado.");
+                   }
+        } catch (Exception ex) {
+            System.out.println("Erro ao gerar o relatório: " + ex.getMessage());
+        }
+    }
+    
+    
 
 }

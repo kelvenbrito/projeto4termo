@@ -37,28 +37,16 @@
       "detalhes": "ff"
     },
     {
-      "id": "dd",
-      "tempoVidaEstimado": 12,
-      "codigo": "dd",
-      "localizacao": "dd",
-      "nome": "dd",
-      "fabricante": "dd",
-      "manual": "dd",
-      "modelo": "dd",
-      "dataAquisicao": "2022-06-10",
-      "detalhes": "dd"
-    },
-    {
-      "id": "dd",
       "tempoVidaEstimado": 34,
-      "codigo": "dd",
-      "localizacao": "ff",
-      "nome": "dd",
-      "fabricante": "dd",
+      "codigo": "zxx",
+      "localizacao": "xx",
+      "nome": "jjmmxx",
+      "id": "5",
+      "fabricante": "jjjnnxx",
       "manual": "dd",
-      "modelo": "dd",
-      "dataAquisicao": "2002-09-30",
-      "detalhes": "ff"
+      "modelo": "n,,,xx",
+      "dataAquisicao": "2003-03-12",
+      "detalhes": "cccxx"
     }
   ],
   "historicoManutencao": [
