@@ -63,7 +63,7 @@ public class FalhaAPI {
         falhaJson.put("prioridade", falha.getPrioridade());
         falhaJson.put("operador", falha.getOperador());
        if (!falhaJson.isEmpty()) {
-        ApiConnection.postData("falhas", falhaJson.toString());
+        ApiConnection.putData("falhas", falhaJson.toString(), falha.getId());
        }
 
     }

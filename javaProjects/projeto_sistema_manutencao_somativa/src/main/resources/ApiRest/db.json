@@ -1,52 +1,52 @@
 {
   "maquinas": [
     {
-      "id": "1",
+      "tempoVidaEstimado": 17,
       "codigo": "M001",
+      "localizacao": "Linha 66",
       "nome": "Torno CNC",
-      "modelo": "Delta CNC",
+      "id": "1",
       "fabricante": "Siemens",
+      "manual": "URL do manual",
+      "modelo": "Delta CNC",
       "dataAquisicao": "2022-06-10",
-      "tempoVidaEstimado": 10,
-      "localizacao": "Linha 4",
-      "detalhes": "Operação em alta precisão",
-      "manual": "URL do manual"
+      "detalhes": "OperaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o em alta precisÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o"
     },
     {
       "tempoVidaEstimado": 12,
       "codigo": "ff",
-      "localizacao": "dd",
+      "localizacao": "linha 7",
       "nome": "dd",
       "id": "2",
       "fabricante": "dd",
       "manual": "dd",
       "modelo": "dd",
-      "dataAquisicao": "2022-06-10",
+      "dataAquisicao": "2020-06-10",
       "detalhes": "dd"
     },
     {
       "tempoVidaEstimado": 65,
       "codigo": "4",
-      "localizacao": "ff",
+      "localizacao": "linha 8",
       "nome": "dd",
       "id": "3",
       "fabricante": "dd",
       "manual": "ff",
       "modelo": "dd",
-      "dataAquisicao": "2002-08-20",
-      "detalhes": "ff"
+      "dataAquisicao": "2020-08-20",
+      "detalhes": "gg"
     },
     {
-      "tempoVidaEstimado": 34,
-      "codigo": "zxx",
-      "localizacao": "xx",
-      "nome": "jjmmxx",
-      "id": "5",
-      "fabricante": "jjjnnxx",
-      "manual": "dd",
-      "modelo": "n,,,xx",
-      "dataAquisicao": "2003-03-12",
-      "detalhes": "cccxx"
+      "id": "4",
+      "tempoVidaEstimado": 113,
+      "codigo": "ff",
+      "localizacao": "gg",
+      "nome": "ff",
+      "fabricante": "ff",
+      "manual": "ff",
+      "modelo": "ff",
+      "dataAquisicao": "2000-09-23",
+      "detalhes": "hh"
     }
   ],
   "historicoManutencao": [
@@ -61,14 +61,24 @@
       "observacoes": "Substituição preventiva da correia."
     },
     {
-      "id": "2",
-      "maquinaId": "1",
-      "data": "2025-01-15",
+      "tempoDeParada": 5,
+      "observacoes": "SubstituiÃ§Ã£o preventiva da Saca Rolamentos E Coletores.",
       "tipo": "Preventiva",
+      "data": "2025-01-15",
+      "maquinaId": "1",
       "pecasTrocadas": "Saca Rolamento",
-      "tempoDeParada": 3,
       "tecnicoId": "Paulo Santos",
-      "observacoes": "Substituição preventiva da Saca Rolamentos E Coletores."
+      "id": "2"
+    },
+    {
+      "tempoDeParada": 23,
+      "observacoes": "ss",
+      "tipo": "ffgg",
+      "data": "2000-09-12",
+      "maquinaId": "2",
+      "pecasTrocadas": "ff",
+      "tecnicoId": "ss",
+      "id": "3"
     }
   ],
   "falhas": [
@@ -81,12 +91,20 @@
       "operador": "Carlos Lima"
     },
     {
-      "id": "2",
-      "maquinaId": "1",
       "data": "2024-01-03",
-      "problema": "Falha na bomba hidráulica",
-      "prioridade": "Media",
+      "prioridade": "baixa",
+      "maquinaId": "1",
+      "problema": "Falha na bomba hidrÃƒÂ¡ulica",
+      "id": "2",
       "operador": "Afonsio a silva"
+    },
+    {
+      "data": "2000-09-12",
+      "prioridade": "bb",
+      "maquinaId": "3",
+      "problema": "gg",
+      "id": "3",
+      "operador": "gg"
     }
   ],
   "tecnicos": [
