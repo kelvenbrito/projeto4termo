@@ -34,7 +34,7 @@ public class FalhasPanel extends JPanel {
     private JTable falhaTable;
     private DefaultTableModel tableModel;
     private JButton btnCadastrarFalha;
-    private JButton btnSalvarAlteracoes;
+    private JButton btnEditar;
     private JButton btnRelatorio;
     private int esc = 0; // 1 para cadastrar, 2 para editar
 
@@ -56,9 +56,11 @@ public class FalhasPanel extends JPanel {
         // Adicionar os botões
         JPanel painelInferior = new JPanel(new FlowLayout(FlowLayout.CENTER));
         btnCadastrarFalha = new JButton("Cadastrar");
-        btnSalvarAlteracoes = new JButton("Editar");
+        btnEditar = new JButton("Editar");
+        btnRelatorio = new JButton("Gerar Reltorio");
         painelInferior.add(btnCadastrarFalha);
-        painelInferior.add(btnSalvarAlteracoes);
+        painelInferior.add(btnEditar);
+        painelInferior.add(btnRelatorio);
         this.add(painelInferior, BorderLayout.SOUTH);
 
         // Criar as ActionListener para Botões
@@ -67,7 +69,7 @@ public class FalhasPanel extends JPanel {
             janelaCadastroFalha();
         });
 
-        btnSalvarAlteracoes.addActionListener(e -> {
+        btnEditar.addActionListener(e -> {
             int selectedRow = falhaTable.getSelectedRow();
             if (selectedRow == -1) {
                 JOptionPane.showMessageDialog(this, "Por favor, selecione uma falha para editar.", "Erro", JOptionPane.ERROR_MESSAGE);

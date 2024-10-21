@@ -30,6 +30,7 @@ public class TecnicosPanel extends JPanel {
     private JButton btnSalvarAlteracoes;
     private JButton btnCadastrarTecnico;
     private JButton btnGerarRelatorio;
+    private JButton btnDeletar;
     int esc = 0; // 1 para cadastro, 2 para edição
 
     // Construtor
@@ -49,14 +50,16 @@ public class TecnicosPanel extends JPanel {
         this.setSize(500, 500);
     }
 
-    private void configurarBotoes() {
+   public void configurarBotoes() {
         JPanel painelInferior = new JPanel(new FlowLayout(FlowLayout.CENTER));
         btnCadastrarTecnico = new JButton("Cadastrar");
         btnSalvarAlteracoes = new JButton("Editar");
         btnGerarRelatorio = new JButton("Gerar Relatório");
+        btnDeletar = new JButton("Deletar");
         painelInferior.add(btnCadastrarTecnico);
         painelInferior.add(btnSalvarAlteracoes);
         painelInferior.add(btnGerarRelatorio);
+        painelInferior.add(btnDeletar);
         this.add(painelInferior, BorderLayout.SOUTH);
 
         btnCadastrarTecnico.addActionListener(e -> {
@@ -75,8 +78,9 @@ public class TecnicosPanel extends JPanel {
         });
 
         btnGerarRelatorio.addActionListener(e -> gerarRelatorioPDF());
-    }
 
+        btnDeletar.addActionListener(e -> deletarTecnico());
+    }
     public void janelaCadastroTecnico() {
         JDialog dialog = new JDialog((Frame) SwingUtilities.getWindowAncestor(this), "Cadastrar Técnico", true);
         dialog.setSize(500, 500);
@@ -98,7 +102,7 @@ public class TecnicosPanel extends JPanel {
         atualizarTabela();
     }
 
-    private JTextField[] criarCamposEntrada(JDialog dialog) {
+   public JTextField[] criarCamposEntrada(JDialog dialog) {
         String[] labels = {"ID:", "Nome:", "Especialidade:", "Disponibilidade:"};
 
         JTextField[] inputs = new JTextField[labels.length];
@@ -110,7 +114,7 @@ public class TecnicosPanel extends JPanel {
         return inputs;
     }
 
-    private void preencherCamposParaEdicao(JTextField[] inputs) {
+   public void preencherCamposParaEdicao(JTextField[] inputs) {
         int selectedRow = tecnicoTable.getSelectedRow();
         if (selectedRow != -1) {
             String selectedId = tableModel.getValueAt(selectedRow, 0).toString();
@@ -133,7 +137,7 @@ public class TecnicosPanel extends JPanel {
         }
     }
 
-    private void salvarTecnico(JTextField[] inputs, JDialog dialog) {
+   public void salvarTecnico(JTextField[] inputs, JDialog dialog) {
         if (validarCampos(inputs, dialog)) {
             try {
                 Tecnicos novoTecnico = criarTecnico(inputs);
@@ -155,7 +159,7 @@ public class TecnicosPanel extends JPanel {
         }
     }
 
-    private boolean validarCampos(JTextField[] inputs, JDialog dialog) {
+   public boolean validarCampos(JTextField[] inputs, JDialog dialog) {
         for (int i = 0; i < inputs.length; i++) {
             if (inputs[i].getText().isEmpty()) { // Campos obrigatórios
                 JOptionPane.showMessageDialog(dialog, "Por favor, preencha todos os campos obrigatórios.", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -165,7 +169,7 @@ public class TecnicosPanel extends JPanel {
         return true;
     }
 
-    private Tecnicos criarTecnico(JTextField[] inputs) {
+   public Tecnicos criarTecnico(JTextField[] inputs) {
         Tecnicos novoTecnico = new Tecnicos();
         novoTecnico.setId(inputs[0].getText());
         novoTecnico.setNome(inputs[1].getText());
@@ -174,7 +178,7 @@ public class TecnicosPanel extends JPanel {
         return novoTecnico;
     }
 
-    private void atualizarTabela() {
+   public void atualizarTabela() {
         tableModel.setRowCount(0);
         List<Tecnicos> tecnicos = tecnicosController.readTecnicos();
         for (Tecnicos tecnico : tecnicos) {
@@ -220,7 +224,7 @@ public class TecnicosPanel extends JPanel {
     }
 }
 
-  private void abrirRelatorio(String caminhoArquivo) {
+ public void abrirRelatorio(String caminhoArquivo) {
         try {
             File relatorio = new File(caminhoArquivo);
             Desktop.getDesktop().open(relatorio);
@@ -229,4 +233,26 @@ public class TecnicosPanel extends JPanel {
         }
     }
 
+    public void deletarTecnico() {
+        int selectedRow = tecnicoTable.getSelectedRow(); // Obtém a linha selecionada
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um Técnico para deletar.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    
+        String selectedId = tableModel.getValueAt(selectedRow, 0).toString(); // Obtém o ID do técnico selecionado
+    
+        // Confirmar exclusão
+        int confirm = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja deletar o Técnico ID: " + selectedId + "?", "Confirmar Exclusão", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                tecnicosController.deleteTecnicos(Integer.parseInt(selectedId), selectedId); // Chama o método de exclusão no controlador
+                JOptionPane.showMessageDialog(this, "Técnico deletado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                atualizarTabela(); // Atualiza a tabela após a exclusão
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Erro ao deletar o Técnico: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    
 }
