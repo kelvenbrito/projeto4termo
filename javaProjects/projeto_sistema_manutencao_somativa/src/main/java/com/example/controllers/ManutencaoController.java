@@ -15,7 +15,7 @@ public class ManutencaoController {
      //Métodos - CRUD
 
     //Criar
-    public void createFalha(Manutencao manutencao){
+    public void createManutencao(Manutencao manutencao){
         ManutencaoAPI.postManutencao(manutencao);
         this.manutencoes.add(manutencao);
     }
@@ -27,7 +27,7 @@ public class ManutencaoController {
     }
 
     //update
-    public void updateMaquina(int posicao,Manutencao manutencao){
+    public void updateManutencao(int posicao,Manutencao manutencao){
         ManutencaoAPI.putManutencao(manutencao);
         manutencoes.set(posicao,manutencao);
     }

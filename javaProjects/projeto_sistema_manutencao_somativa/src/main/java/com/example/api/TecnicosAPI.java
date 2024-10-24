@@ -55,7 +55,7 @@ public class TecnicosAPI {
         tecnicoJson.put("especialidade", tecnico.getEspecialidade());
         tecnicoJson.put("disponibilidade", tecnico.getDisponibilidade());
        if (!tecnicoJson.isEmpty()) {
-        ApiConnection.postData("tecnicos", tecnicoJson.toString());
+        ApiConnection.putData("tecnicos", tecnicoJson.toString(), tecnico.getId());
        }
        
     }

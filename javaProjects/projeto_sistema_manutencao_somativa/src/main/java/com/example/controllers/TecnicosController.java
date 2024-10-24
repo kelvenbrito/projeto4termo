@@ -34,8 +34,10 @@ public class TecnicosController {
     }
 
     //Delete
-    public void deleteTecnicos(int posicao, String id){
-        TecnicosAPI.deleteTecnicos(id);
-        tecnicos.remove(posicao);
-    }
+    public void deleteTecnicos(int posicao,String id) {
+      
+        tecnicos.removeIf(tecnico -> tecnico.getId().equals(String.valueOf(id)));
+         TecnicosAPI.deleteTecnicos(id);
+     
+}
 }

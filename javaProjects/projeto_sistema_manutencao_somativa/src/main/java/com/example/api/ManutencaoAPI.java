@@ -69,7 +69,7 @@ public class ManutencaoAPI {
         manutencaoJson.put("tecnicoId", manutencao.getTecnicoID());
         manutencaoJson.put("observacoes", manutencao.getObservacoes());
        if (!manutencaoJson.isEmpty()) {
-        ApiConnection.postData("historicoManutencao", manutencaoJson.toString());
+        ApiConnection.putData("historicoManutencao", manutencaoJson.toString(), manutencao.getId());
        }
        
       
