@@ -1,0 +1,157 @@
+Aqui está um tutorial básico sobre como integrar o Flutter com APIs REST usando o pacote http. Vou abordar as requisições GET e POST, a manipulação de dados em JSON e a exibição dos dados em widgets do Flutter.
+1. Adicionando Dependência
+
+Primeiro, adicione o pacote http ao seu arquivo pubspec.yaml:
+
+yaml
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.3
+
+2. Realizando Requisições GET
+
+Aqui está um exemplo de como fazer uma requisição GET para obter dados de uma API e exibi-los em uma lista:
+
+dart
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter API Integration',
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List data = [];
+
+  Future<void> fetchData() async {
+    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+
+    if (response.statusCode == 200) {
+      setState(() {
+        data = json.decode(response.body);
+      });
+    } else {
+      throw Exception('Failed to load data');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('GET API Example'),
+      ),
+      body: data.isEmpty
+          ? Center(child: CircularProgressIndicator())
+          : ListView.builder(
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(data[index]['title']),
+                  subtitle: Text(data[index]['body']),
+                );
+              },
+            ),
+    );
+  }
+}
+
+3. Realizando Requisições POST
+
+Para realizar uma requisição POST, você pode usar o seguinte exemplo:
+
+dart
+
+class PostDataPage extends StatefulWidget {
+  @override
+  _PostDataPageState createState() => _PostDataPageState();
+}
+
+class _PostDataPageState extends State<PostDataPage> {
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController bodyController = TextEditingController();
+
+  Future<void> postData() async {
+    final response = await http.post(
+      Uri.parse('https://jsonplaceholder.typicode.com/posts'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'title': titleController.text,
+        'body': bodyController.text,
+        'userId': '1',
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      print('Data posted successfully!');
+    } else {
+      throw Exception('Failed to post data');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('POST API Example'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: titleController,
+              decoration: InputDecoration(labelText: 'Title'),
+            ),
+            TextField(
+              controller: bodyController,
+              decoration: InputDecoration(labelText: 'Body'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: postData,
+              child: Text('Submit'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+4. Manipulação de Dados em JSON
+
+No exemplo acima, usamos json.decode para converter a resposta JSON em um objeto Dart e jsonEncode para enviar dados como JSON.
+5. Exibindo Dados em Widgets do Flutter
+
+No exemplo de requisição GET, usamos um ListView para exibir os dados. Para o POST, podemos adicionar os dados a uma lista ou exibir um feedback ao usuário após a submissão.
+6. Conclusão
+
+Esses exemplos cobrem a integração básica do Flutter com APIs REST. Você pode expandir isso com tratamento de erros, autenticação e mais complexidade de dados conforme necessário. Se precisar de mais detalhes ou exemplos específicos, é só avisar!
