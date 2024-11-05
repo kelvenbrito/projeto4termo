@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1065553518843",
+    "project_id": "somativaflutter",
+    "storage_bucket": "somativaflutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065553518843:android:5338eab697ff269df5505e",
+        "android_client_info": {
+          "package_name": "com.kelven.exempofirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWpR73rvFyzUpkDdeQ1wu9DkmFc7c9Fbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
