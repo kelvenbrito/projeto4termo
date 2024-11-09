@@ -6,6 +6,18 @@
       <excludeFolder url="file://$MODULE_DIR$/exemplo_audio_player/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/exemplo_audio_player/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/exemplo_audio_player/build" />
+      <excludeFolder url="file://$MODULE_DIR$/exemplo_firebase/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/exemplo_firebase/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/exemplo_firebase/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_projeto/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_projeto/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_projeto/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_somativa/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_somativa/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_somativa/build" />
+      <excludeFolder url="file://$MODULE_DIR$/somativa_flutter/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/somativa_flutter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/somativa_flutter/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

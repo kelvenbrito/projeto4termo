@@ -41,7 +41,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCWpR73rvFyzUpkDdeQ1wu9DkmFc7c9Fbo',
+    apiKey: 'AIzaSyDLtrocsd-H3_TOxZ3uHcuetlFvvWipc_0',
     appId: '1:1065553518843:android:5338eab697ff269df5505e',
     messagingSenderId: '1065553518843',
     projectId: 'somativaflutter',
@@ -59,8 +59,8 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB_3pYut7UmEmm9C5KHWiZif20C56h9nng',
-    appId: '1:1065553518843:ios:b0ea4399a6281f83f5505e',
+    apiKey: 'AIzaSyDLtrocsd-H3_TOxZ3uHcuetlFvvWipc_0',
+    appId: '1:1065553518843:android:5338eab697ff269df5505e',
     messagingSenderId: '1065553518843',
     projectId: 'somativaflutter',
     storageBucket: 'somativaflutter.firebasestorage.app',
@@ -68,8 +68,8 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB_3pYut7UmEmm9C5KHWiZif20C56h9nng',
-    appId: '1:1065553518843:ios:b0ea4399a6281f83f5505e',
+    apiKey: 'AIzaSyDLtrocsd-H3_TOxZ3uHcuetlFvvWipc_0',
+    appId: '1:1065553518843:android:5338eab697ff269df5505e',
     messagingSenderId: '1065553518843',
     projectId: 'somativaflutter',
     storageBucket: 'somativaflutter.firebasestorage.app',
