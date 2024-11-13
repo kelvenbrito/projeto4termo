@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import '../controllers/geradorQRCodeController.dart';
 
 class GeradorQRCodeScreen extends StatefulWidget {
+  const GeradorQRCodeScreen({super.key});
+
   @override
   _GeradorQRCodeScreenState createState() => _GeradorQRCodeScreenState();
 }
 
 class _GeradorQRCodeScreenState extends State<GeradorQRCodeScreen> {
-  final _nomeController = TextEditingController();
-  final _cpfController = TextEditingController();
-  String _qrCodeData = '';
+  final geradorController = geradorQRCodeController();
 
-  // Função para gerar QR Code baseado no CPF
+  @override
+  void dispose() {
+    geradorController.dispose();
+    super.dispose();
+  }
+
   void _gerarQRCode() {
     setState(() {
-      _qrCodeData = _cpfController.text; // Usa o CPF como o dado para gerar o QR code
+      geradorController.gerarQRCode();
     });
   }
 
@@ -29,11 +35,11 @@ class _GeradorQRCodeScreenState extends State<GeradorQRCodeScreen> {
         child: Column(
           children: [
             TextField(
-              controller: _nomeController,
+              controller: geradorController.nomeController,
               decoration: const InputDecoration(labelText: 'Nome'),
             ),
             TextField(
-              controller: _cpfController,
+              controller: geradorController.cpfController,
               decoration: const InputDecoration(labelText: 'CPF'),
               keyboardType: TextInputType.number,
             ),
@@ -43,9 +49,9 @@ class _GeradorQRCodeScreenState extends State<GeradorQRCodeScreen> {
               child: const Text('Gerar QR Code'),
             ),
             const SizedBox(height: 20),
-            if (_qrCodeData.isNotEmpty) 
-              QrImage(
-                data: _qrCodeData,
+            if (geradorController.qrCodeData.isNotEmpty)
+              QrImageView(
+                data: geradorController.qrCodeData, // Dados do QR Code
                 version: QrVersions.auto,
                 size: 200.0,
               ),

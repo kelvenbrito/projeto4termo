@@ -101,7 +101,7 @@ class _TodolistScreenState extends State<TodolistScreen> {
             // Ação para abrir o Gerador QR Code
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const GeradorQRC()), 
+              MaterialPageRoute(builder: (context) => const GeradorQRCodeScreen()), 
             );
           }
         },

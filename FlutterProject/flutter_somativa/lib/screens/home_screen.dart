@@ -11,7 +11,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //dois botoes (login e registro)
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,6 +39,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.pushNamed(context, '/register');
               },
               child: const Text('Registro'),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/geradorQRCode'); // Nova rota para a página de QR Code
+              },
+              child: const Text('Gerar QR Code'),
             ),
           ],
         ),
