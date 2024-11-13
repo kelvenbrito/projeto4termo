@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_somativa/controllers/todolist_controller.dart';
 import 'package:flutter_somativa/models/todolist.dart';
 import 'package:flutter_somativa/screens/geradorQRC.dart';
+import 'package:flutter_somativa/screens/leitorQRCodeScreen.dart';
 import 'package:flutter_somativa/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -95,8 +96,10 @@ class _TodolistScreenState extends State<TodolistScreen> {
         child: const Icon(Icons.add),
         onPressed: () {
           if (_isList) {
-            // Ação para adicionar nova tarefa
-            _showAddTaskDialog();
+             Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ScannerPage()), 
+            );
           } else {
             // Ação para abrir o Gerador QR Code
             Navigator.push(
@@ -112,11 +115,11 @@ class _TodolistScreenState extends State<TodolistScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
-            label: 'Lista de Tarefas',
+            label: 'Scanner QRCode',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.qr_code),
-            label: 'Gerar QR',
+            label: 'Geraador de QRCode',
           ),
         ],
         onTap: (index) {

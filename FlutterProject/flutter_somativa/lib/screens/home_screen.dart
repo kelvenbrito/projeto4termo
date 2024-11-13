@@ -43,12 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 20,
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/geradorQRCode'); // Nova rota para a página de QR Code
-              },
-              child: const Text('Gerar QR Code'),
-            ),
+          
           ],
         ),
       ),
