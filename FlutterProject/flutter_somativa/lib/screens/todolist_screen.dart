@@ -131,43 +131,7 @@ class _TodolistScreenState extends State<TodolistScreen> {
     );
   }
 
-  void _showAddTaskDialog() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text("Nova Tarefa"),
-          content: TextFormField(
-            controller: _tituloController,
-            decoration: const InputDecoration(hintText: "Digite a tarefa"),
-          ),
-          actions: [
-            TextButton(
-              child: const Text("Cancelar"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: const Text("Salvar"),
-              onPressed: () {
-                Navigator.of(context).pop();
-                Todolist novaTarefa = Todolist(
-                  id: (_controller.list.length + 1).toString(),
-                  titulo: _tituloController.text,
-                  userId: widget.user.uid,
-                  timestamp: DateTime.now(),
-                );
-                _controller.add(novaTarefa);
-                _getList();
-                setState(() {});
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+
 
   void _showEditDialog(Todolist task) {
     _tituloController.text = task.titulo;
