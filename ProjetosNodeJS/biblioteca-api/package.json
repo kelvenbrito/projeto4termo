@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "app": "^0.1.0",
+    "biblioteca-api": "file:",
     "body-parse": "^0.1.0",
     "cors": "^2.8.5",
     "crate": "^0.0.0",

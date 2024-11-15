@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gerenciamento de Tarefas</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            width: 30%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .task {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .task button {
+            margin-right: 5px;
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        .button-container button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerenciamento de Tarefas</h1>
+    <div class="button-container">
+        <form action="/cadastro-usuario" method="get">
+            <button type="submit">Cadastro de Usuário</button>
+        </form>
+        <form action="/cadastro-tarefa" method="get">
+            <button type="submit">Cadastro de Tarefa</button>
+        </form>
+    </div>
+    <div class="container">
+        <div class="column">
+            <h2>A Fazer</h2>
+            <div th:each="tarefa : ${tarefas}" th:if="${tarefa.status == 'A FAZER'}" class="task">
+                <p><strong>Descrição:</strong> <span th:text="${tarefa.descricao}"></span></p>
+                <p><strong>Setor:</strong> <span th:text="${tarefa.setor}"></span></p>
+                <p><strong>Prioridade:</strong> <span th:text="${tarefa.prioridade}"></span></p>
+                <p><strong>Usuário:</strong> <span th:text="${tarefa.usuario.nome}"></span></p>
+                <form th:action="@{/atualizar-status/{id}(id=${tarefa.id})}" method="post">
+                    <label>
+                        <input type="radio" name="status" value="FAZENDO" /> Fazendo
+                    </label>
+                    <label>
+                        <input type="radio" name="status" value="PRONTO" /> Pronto
+                    </label>
+                    <button type="submit">Atualizar Status</button>
+                </form>
+                <form th:action="@{/editar-tarefa/{id}(id=${tarefa.id})}" method="get">
+                    <button type="submit">Editar</button>
+                </form>
+                <form th:action="@{/excluir-tarefa/{id}(id=${tarefa.id})}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir esta tarefa?');">
+                    <button type="submit">Excluir</button>
+                </form>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Fazendo</h2>
+            <div th:each="tarefa : ${tarefas}" th:if="${tarefa.status == 'FAZENDO'}" class="task">
+                <p><strong>Descrição:</strong> <span th:text="${tarefa.descricao}"></span></p>
+                <p><strong>Setor:</strong> <span th:text="${tarefa.setor}"></span></p>
+                <p><strong>Prioridade:</strong> <span th:text="${tarefa.prioridade}"></span></p>
+                <p><strong>Usuário:</strong> <span th:text="${tarefa.usuario.nome}"></span></p>
+                <form th:action="@{/atualizar-status/{id}(id=${tarefa.id})}" method="post">
+                    <label>
+                        <input type="radio" name="status" value="A FAZER" /> A Fazer
+                    </label>
+                    <label>
+                        <input type="radio" name="status" value="PRONTO" /> Pronto
+                    </label>
+                    <button type="submit">Atualizar Status</button>
+                </form>
+                <form th:action="@{/editar-tarefa/{id}(id=${tarefa.id})}" method="get">
+                    <button type="submit">Editar</button>
+                </form>
+                <form th:action="@{/excluir-tarefa/{id}(id=${tarefa.id})}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir esta tarefa?');">
+                    <button type="submit">Excluir</button>
+                </form>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Pronto</h2>
+            <div th:each="tarefa : ${tarefas}" th:if="${tarefa.status == 'PRONTO'}" class="task">
+                <p><strong>Descrição:</strong> <span th:tex
